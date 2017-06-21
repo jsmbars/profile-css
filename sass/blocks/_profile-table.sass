@@ -15,5 +15,105 @@
 $block: ".profile-table"
 
 #{$block}
+  position: relative
+  z-index: 10
   display: block
   width: 100%
+  border: 1px solid #e1e1e1
+  border-radius: 10px
+  overflow: hidden
+
+
+  // $Common table row
+  &__row
+    position: relative
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: stretch
+    width: 100%
+    border-bottom: 1px solid #e1e1e1
+    background-color: #fcfcfc
+
+    &:last-of-type
+      border-bottom: none
+
+
+    // $Common table row MOD: role header
+    &_role_header
+      background-color: #f7f7f7
+
+
+  // $Common table cell
+  &__cell
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    min-height: 50px
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 700
+    color: #5b5b5b
+    padding: 10px 20px
+
+    &:not(:last-child)
+      border-right: 1px solid #e1e1e1
+
+    // $Common table cell first column
+    &:nth-child(1)
+      #{$block}_page_users &
+        width: calc(100% - 150px)
+
+      #{$block}_page_positions &
+        width: calc(100% - 230px)
+
+    // $Common table cell second column
+    &:nth-child(2)
+      #{$block}_page_users &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 150px
+
+      #{$block}_page_positions &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 230px
+
+    // $Common table cell MOD: role header
+    // $Common table cell MOD: role footer
+    &_role_header,
+    &_role_footer
+      min-height: 50px
+      font-size: 14px
+      font-family: $f-sans
+      font-weight: 800
+      color: #333
+      text-transform: uppercase
+
+
+  // $Common table info
+  &__info
+
+
+  // $Common table text
+  &__text
+
+
+  // $Common table actions
+  &__actions
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+
+
+  // $Common table action
+  &__action
+    margin-right: 15px
+
+    &:last-of-type
+      margin-right: 0
+
