@@ -12,7 +12,7 @@
 
 
 //////////////////////////////////////// Block styles
-$block: ".stock-form-select"
+$block: ".profile-form-select"
 
 #{$block}
   position: relative
@@ -33,26 +33,20 @@ $block: ".stock-form-select"
     justify-content: flex-end
     align-items: center
 
-  // $Common form select MOD: role search
-  &_role_search
-
   // $Common form select MOD: no top label
   &_no-label
     padding-top: 20px
-
-  // $Common form select MOD: size small
-  &_size_s
 
 
   // $Common form select label
   &__label
     display: block
     width: 100%
-    margin-bottom: 15px
+    margin-bottom: 10px
     font-family: $f-sans
     font-size: 14px
-    color: #757a85
-    font-weight: 600
+    color: #464646
+    font-weight: 800
     line-height: 1
 
     // $Common form select label text CONTEXT: $Common form select MOD: role control
@@ -62,7 +56,7 @@ $block: ".stock-form-select"
       flex-shrink: 0
       width: auto
       margin-bottom: 0
-      font-weight: 400
+      font-weight: 800
       white-space: nowrap
 
     #{$block}_role_control &
@@ -97,25 +91,6 @@ $block: ".stock-form-select"
       flex-grow: 1
       flex-shrink: 1
 
-    &:before
-      #{$block}_role_search &
-        content: ""
-        position: absolute
-        top: 50%
-        margin-top: -7px
-        left: 15px
-        display: block
-        width: 14px
-        height: 14px
-        background-image: url('../icons/icon-lens-light-gray.svg')
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: contain
-
-      @media screen and (max-width: 960px)
-        #{$block}_role_search &
-          left: 25px
-
     &:after
       content: ''
       position: absolute
@@ -125,67 +100,42 @@ $block: ".stock-form-select"
       display: block
       width: 14px
       height: 14px
-      background: url(../icons/icon-arrow-down-dark-gray.svg) no-repeat 0 0
+      background: url(../icons/icon-arrow-down-light-gray.svg) no-repeat 0 0
       transform: translateY(-50%)
 
     & select
       display: block
       width: 100%
-      padding: 14px 40px 14px 10px
+      min-height: 40px
+      padding: 11px 40px 11px 10px
       font-family: $f-sans
-      font-size: 12px
-      color: #757a85
-      font-weight: 400
+      font-size: 14px
+      color: #333
+      font-weight: 800
       line-height: 1.5
       outline: none
-      border: 1px solid #d3d3d3
-      border-radius: 0
+      border: 1px solid #e1e1e1
+      border-radius: 5px
       background: none
       appearance: none
       -moz-appearance: none
       -webkit-appearance: none
+      background-color: #FCFCFC
       transition: all .3s
 
       #{$block}_state_error &
         border-color: #ed7f7e
         color: #ed7f7e
 
-      #{$block}_size_s &
-        min-width: 155px
-        padding: 8px 40px 8px 10px
-
-      #{$block}_role_search &
-        padding-left: 40px
-
-      #{$block}_adjust_manager &
-        padding-top: 24px
-        padding-bottom: 24px
-        border-top: none
-        border-bottom: none
-        border-left: none
-
-      @media screen and (max-width: 960px)
-        #{$block}_role_search &
-          padding-left: 55px
-
-        #{$block}_adjust_manager &
-          padding-top: 20px
-          padding-bottom: 20px
-          border-right: none
-          border-bottom: 1px solid #d3d3d3
-
-        #{$block}_size_s &
-          min-width: 0
-
       &::-ms-expand
         display: none
 
       &:focus::-ms-value
         background-color: transparent
-        color: #757a85
+        color: #333
 
       &:invalid
-        color: #c5c5c5
+        color: #acacac
 
     // $Common form select option
     & option
@@ -193,8 +143,8 @@ $block: ".stock-form-select"
       width: 100%
       max-width: 100%
       font-family: $f-sans
-      font-size: 12px
-      color: #757a85
+      font-size: 14px
+      color: #333
       font-weight: 400
       line-height: 1.5
       outline: none
@@ -207,29 +157,29 @@ $block: ".stock-form-select"
     font-family: $f-sans
     font-size: 14px
     line-height: 1
-    color: #757a85
+    color: #333
 
 
   ::-webkit-input-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   :-moz-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   ::-moz-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   :-ms-input-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   :placeholder-shown
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important

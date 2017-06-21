@@ -12,7 +12,7 @@
 
 
 //////////////////////////////////////// Block styles
-$block: ".stock-form-field"
+$block: ".profile-form-field"
 
 #{$block}
   position: relative
@@ -40,20 +40,17 @@ $block: ".stock-form-field"
   &_no-label
     padding-top: 20px
 
-  // $Common form field MOD: size small
-  &_size_s
-
 
   // $Common form field label
   &__label
     display: block
     width: 100%
-    margin-bottom: 15px
+    margin-bottom: 10px
     font-family: $f-sans
     font-size: 14px
-    color: #757a85
-    font-weight: 600
-    line-height: 1.2
+    color: #464646
+    font-weight: 800
+    line-height: 1
 
     // $Common form field label text CONTEXT: $Common form MOD: role control
     #{$block}_role_control &,
@@ -62,7 +59,7 @@ $block: ".stock-form-field"
       flex-shrink: 0
       width: auto
       margin-bottom: 0
-      font-weight: 400
+      font-weight: 800
       white-space: nowrap
 
     #{$block}_role_control &
@@ -70,12 +67,6 @@ $block: ".stock-form-field"
 
     #{$block}_role_control-reverse &
       margin-left: 10px
-
-    // $Common form field label text CONTEXT: $Common form MOD: context table
-    #{$block}_context_table &
-      flex-shrink: 1
-      font-size: 12px
-      white-space: normal
 
     // $Common form field label-text CONTEXT: $Common form field MOD: type required field
     #{$block}_type_required &
@@ -103,11 +94,6 @@ $block: ".stock-form-field"
       flex-grow: 1
       flex-shrink: 1
 
-    // $Common form field input CONTEXT: $Common form MOD: context table
-    #{$block}_context_table &
-      flex-grow: 0
-      flex-shrink: 0
-
     &:before
       #{$block}_role_search &
         content: ""
@@ -126,26 +112,19 @@ $block: ".stock-form-field"
     & input
       display: block
       width: 100%
-      padding: 14px 10px
+      min-height: 40px
+      padding: 10px 15px
       font-family: $f-sans
-      font-size: 12px
-      color: #757a85
-      font-weight: 400
+      font-size: 14px
+      color: #333
+      font-weight: 800
       line-height: 1.5
-      border: 1px solid #d3d3d3
-      border-radius: 0
+      border: 1px solid #e1e1e1
+      border-radius: 5px
+      background-color: #FCFCFC
 
       #{$block}_role_search &
         padding-left: 40px
-
-      #{$block}_size_s &
-        width: 155px
-        padding: 8px 10px
-
-      #{$block}_context_table &
-        width: 55px
-        padding: 8px 10px
-        font-size: 12px
 
       #{$block}_state_error &
         border-color: #ed7f7e
@@ -165,29 +144,29 @@ $block: ".stock-form-field"
     font-family: $f-sans
     font-size: 14px
     line-height: 1
-    color: #757a85
+    color: #333
 
 
   ::-webkit-input-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   :-moz-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   ::-moz-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   :-ms-input-placeholder
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important
 
 
   :placeholder-shown
-    color: #c5c5c5
+    color: #acacac
     opacity:  1 !important

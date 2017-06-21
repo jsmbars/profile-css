@@ -91,7 +91,8 @@ $block: ".profile-button"
   +button-common-hover-behavior($background-color: $background-color)
 
   display: inline-block
-  padding: 12px 20px
+  min-height: 40px
+  padding: 13px 20px
   border-radius: 5px
   font-family: $f-sans
   font-size: 14px
@@ -112,6 +113,9 @@ $block: ".profile-button"
 
   &:focus
     outline: none
+
+  &_type_multiple
+    margin-right: 20px
 
   // $Common button MOD: size full
   &_size_full

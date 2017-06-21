@@ -38,18 +38,39 @@ $block: ".profile-page-content"
 
   // $Page content inner area
   &__inner
-    display: block
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
     width: 100%
+    min-height: 100%
     padding: 20px 25px 40px
+
 
 
   // $Page content header
   &__header
+    flex-grow: 0
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    min-height: 50px
+    width: 100%
+    margin-bottom: 20px
+
+  &__header-search
+    width: 320px
 
 
   // $Page content board
   &__board
+    width: 100%
+    padding: 20px
     background-color: #FFF
+
+    &_size_full
+      flex-grow: 1
 
 
   // $Page content title
