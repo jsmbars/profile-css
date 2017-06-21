@@ -40,6 +40,8 @@ $block: ".profile-form-field"
   &_no-label
     padding-top: 20px
 
+  &_adjust_modal
+
 
   // $Common form field label
   &__label
@@ -63,16 +65,20 @@ $block: ".profile-form-field"
       white-space: nowrap
 
     #{$block}_role_control &
-      margin-right: 10px
+      margin-right: 20px
 
     #{$block}_role_control-reverse &
-      margin-left: 10px
+      margin-left: 20px
 
     // $Common form field label-text CONTEXT: $Common form field MOD: type required field
     #{$block}_type_required &
       &:after
         content: '*'
         margin-left: 2px
+
+    #{$block}_adjust_modal &
+      width: 120px
+      text-align: right
 
     @media screen and (max-width: 960px)
       #{$block}_role_control &,
