@@ -42,7 +42,7 @@ $block: ".profile-form"
 
       @media screen and (max-width: 960px)
         margin-right: 0
-        margin-bottom: 25px
+        margin-bottom: 20px
 
     &_size_half
       flex-grow: 0
@@ -119,6 +119,7 @@ $block: ".profile-form"
 
     @media screen and (max-width: 960px)
       flex-direction: column
+      margin-bottom: 20px
 
     // $Common form row MOD: justify end
     &_justify_end
@@ -131,6 +132,10 @@ $block: ".profile-form"
 
       @media screen and (max-width: 960px)
         margin-right: 0
+
+    &_adjust_nowrap
+      @media screen and (max-width: 960px)
+        flex-direction: row
 
 
   // $Common form field
@@ -156,7 +161,12 @@ $block: ".profile-form"
 
       @media screen and (max-width: 960px)
         margin-right: 0
-        margin-bottom: 25px
+        margin-bottom: 20px
+
+    &_size_max-chain,
+    &_size_min-chain
+      margin-right: 20px
+      margin-bottom: 0
 
     &_size_half
       flex-grow: 0
@@ -194,6 +204,11 @@ $block: ".profile-form"
         flex-grow: 1
         width: 100%
 
+    &_size_max-chain
+      flex-grow: 1
+      flex-shrink: 1
+      width: auto
+
     &_size_min
       flex-grow: 0
       flex-shrink: 1
@@ -202,6 +217,11 @@ $block: ".profile-form"
       @media screen and (max-width: 960px)
         flex-grow: 1
         width: 100%
+
+    &_size_min-chain
+      flex-grow: 0
+      flex-shrink: 1
+      width: auto
 
     &_size_fluid
       flex-grow: 0
@@ -222,7 +242,14 @@ $block: ".profile-form"
         margin-right: 0
         margin-bottom: 0
 
-    &_role_controls-middle
+    &_adjust_modal
+      margin-bottom: 10px
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 10px
+
+    &_adjust_modal-controls
+      margin-top: 20px
       text-align: center
 
 
@@ -237,6 +264,21 @@ $block: ".profile-form"
 
     @media screen and (max-width: 960px)
       text-align: center
+
+
+  // $Common form action
+  &__action
+    margin-right: 20px
+
+    @media screen and (max-width: 960px)
+      margin-right: 0
+      margin-bottom: 10px
+
+    &:last-child
+      margin-right: 0
+
+      @media screen and (max-width: 960px)
+        margin-bottom: 0
 
 
 

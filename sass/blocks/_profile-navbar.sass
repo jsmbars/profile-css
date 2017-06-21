@@ -22,8 +22,14 @@ $block: ".profile-navbar"
 
   // $Navigation bar links
   &__links
-    display: block
-    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
+    @media screen and (max-width: 960px)
+      flex-direction: row
+
 
 
   // $Navigation bar link
@@ -44,6 +50,12 @@ $block: ".profile-navbar"
     outline: none
     border-bottom: 1px solid #454344
 
+    @media screen and (max-width: 960px)
+      height: 65px
+      padding: 20px 10px
+      border-bottom: none
+      border-right: 1px solid #454344
+
     &:before
       content: ""
       display: inline-block
@@ -58,6 +70,10 @@ $block: ".profile-navbar"
 
     &:focus
       outline: none
+
+    &:last-of-type
+      @media screen and (max-width: 960px)
+        border-right: none
 
     // $Navigation bar link MOD: state active
     &_state_active
@@ -74,12 +90,27 @@ $block: ".profile-navbar"
         border-top: 10px solid transparent
         border-bottom: 10px solid transparent
 
+        @media screen and (max-width: 960px)
+          top: auto
+          right: 50%
+          bottom: 0
+          margin-top: 0
+          margin-right: -10px
+          border-bottom: 10px solid #ecedf1
+          border-right: 10px solid transparent
+          border-left: 10px solid transparent
+
     // $Navigation bar link MOD: role users
     &_role_users
       &:before
         width: 41px
         height: 41px
         background-image: url('../icons/icon-user-medium-gray.png')
+
+        @media screen and (max-width: 960px)
+          width: 28px
+          height: 26px
+
 
     // $Navigation bar link MOD: role users state active
     &_role_users#{&}_state_active,
@@ -94,6 +125,11 @@ $block: ".profile-navbar"
         height: 41px
         background-image: url('../icons/icon-case-medium-gray.png')
 
+        @media screen and (max-width: 960px)
+          width: 28px
+          height: 26px
+
+
     // $Navigation bar link MOD: role positions state active
     &_role_positions#{&}_state_active,
     &_role_positions:hover
@@ -107,6 +143,10 @@ $block: ".profile-navbar"
         height: 41px
         background-image: url('../icons/icon-globe-medium-gray.png')
 
+        @media screen and (max-width: 960px)
+          width: 26px
+          height: 26px
+
     // $Navigation bar link MOD: role sites state active
     &_role_sites#{&}_state_active,
     &_role_sites:hover
@@ -119,6 +159,10 @@ $block: ".profile-navbar"
         width: 41px
         height: 41px
         background-image: url('../icons/icon-screen-medium-gray.png')
+
+        @media screen and (max-width: 960px)
+          width: 28px
+          height: 26px
 
     // $Navigation bar link MOD: role apps state active
     &_role_apps#{&}_state_active,
@@ -134,3 +178,6 @@ $block: ".profile-navbar"
     flex-shrink: 1
     display: block
     width: 100%
+
+    @media screen and (max-width: 960px)
+      display: none

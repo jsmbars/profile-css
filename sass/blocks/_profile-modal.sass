@@ -23,36 +23,54 @@ $block: ".profile-modal"
   border-radius: 10px
   overflow: hidden
   display: none
-  width: 100%
+  width: 95%
   max-width: 810px
   transform: translateX(-50%)
 
+  @media screen and (max-width: 960px)
+    top: 25px
+
+  // $Modal window MOD: state visible
   &_state_visible
     display: block
 
 
+  // $Modal window header
   &__header
     width: 100%
     padding: 35px 20px
     background-color: #f9f9f9
     text-align: center
 
+    @media screen and (max-width: 960px)
+      padding: 20px
 
+
+  // $Modal window content
   &__content
     width: 100%
     padding: 35px 20px 45px
 
+    @media screen and (max-width: 960px)
+      padding: 30px 20px 30px
 
+
+  // $Modal window inner container
   &__inner
     max-width: 400px
     margin: 0 auto
 
 
+  // $Modal window image
   &__image
     display: inline-block
     margin-bottom: 30px
 
+    @media screen and (max-width: 960px)
+      margin-bottom: 20px
 
+
+  // $Modal window title
   &__title
     margin-bottom: 25px
     font-family: $f-sans
@@ -63,10 +81,14 @@ $block: ".profile-modal"
     text-transform: uppercase
     text-align: center
 
+    @media screen and (max-width: 960px)
+      margin-bottom: 15px
+
     &:last-child
       margin-bottom: 0
 
 
+  // $Modal window text
   &__text
     font-family: $f-sans
     font-size: 14px
@@ -75,9 +97,12 @@ $block: ".profile-modal"
     font-weight: 500
 
 
-
+  // $Modal window form
   &__form
     padding: 0 30px
+
+    @media screen and (max-width: 960px)
+      padding: 0
 
 
 

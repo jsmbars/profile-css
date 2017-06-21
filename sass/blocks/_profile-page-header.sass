@@ -20,7 +20,6 @@ $block: ".profile-page-header"
   justify-content: space-between
   align-items: stretch
   width: 100%
-  height: 80px
   background-color: #fff
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.2)
 
@@ -34,12 +33,16 @@ $block: ".profile-page-header"
     justify-content: space-between
     align-items: center
     width: calc(100% - 150px)
-    padding: 0 25px
+    padding: 20px 25px
+
+    @media screen and (max-width: 960px)
+      padding: 10px
 
 
   // $Page header title
   &__title
     flex-grow: 1
+    padding-right: 20px
     font-family: $f-sans
     font-size: 18px
     line-height: 1
@@ -47,6 +50,9 @@ $block: ".profile-page-header"
     text-transform: uppercase
     text-align: center
     color: #333
+
+    @media screen and (max-width: 960px)
+      text-align: left
 
 
   // $Page header user
@@ -60,6 +66,9 @@ $block: ".profile-page-header"
     width: 150px
     padding: 10px
     background-color: #2d91ba
+
+    @media screen and (max-width: 960px)
+      display: none
 
 
   // $Page header user text
