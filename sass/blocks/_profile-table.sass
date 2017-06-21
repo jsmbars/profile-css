@@ -157,22 +157,25 @@ $block: ".profile-table"
         text-align: center
 
     &_role_position
-      position: relative
-      padding-left: 28px
+
+      @media screen and (max-width: 960px)
+        position: relative
+        padding-left: 28px
 
       &:before
-        content: ""
-        position: absolute
-        top: 50%
-        left: 0
-        display: block
-        width: 16px
-        height: 14px
-        background-image: url('../icons/icon-case-fill-dark-gray.svg')
-        background-repeat: no-repeat
-        background-size: contain
-        background-position: center center
-        transform: translateY(-50%)
+        @media screen and (max-width: 960px)
+          content: ""
+          position: absolute
+          top: 50%
+          left: 0
+          display: block
+          width: 16px
+          height: 14px
+          background-image: url('../icons/icon-case-fill-dark-gray.svg')
+          background-repeat: no-repeat
+          background-size: contain
+          background-position: center center
+          transform: translateY(-50%)
 
 
   // $Common table actions
