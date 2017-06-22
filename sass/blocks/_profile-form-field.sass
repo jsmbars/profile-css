@@ -40,6 +40,10 @@ $block: ".profile-form-field"
   &_no-label
     padding-top: 20px
 
+  &_state_error
+    @media screen and (max-width: 960px)
+      margin-bottom: 25px
+
   &_adjust_modal
 
 
@@ -133,13 +137,19 @@ $block: ".profile-form-field"
       border: 1px solid #e1e1e1
       border-radius: 5px
       background-color: #FCFCFC
+      outline: none
 
       #{$block}_role_search &
         padding-left: 40px
 
+      #{$block}_state_success &
+        border: 2px solid #4ec351
+        color: #4ec351
+
       #{$block}_state_error &
-        border-color: #ed7f7e
-        color: #ed7f7e
+        border: 2px solid #e14f4f
+        border-bottom-right-radius: 0
+        color: #e14f4f
 
       @media screen and (max-width: 960px)
         #{$block}_size_s &
@@ -147,6 +157,13 @@ $block: ".profile-form-field"
 
       &:focus
         outline: none
+
+      &:invalid
+        outline: none
+        box-shadow: none
+
+        #{$block}_state_error &
+          color: #e14f4f
 
       &::-webkit-input-placeholder
         color: #acacac !important
@@ -185,5 +202,24 @@ $block: ".profile-form-field"
     line-height: 1
     color: #333
 
+
+  // $Common form field error
+  &__error
+    position: absolute
+    top: 100%
+    right: 0
+    z-index: 10
+    display: none
+    padding: 4px 8px 8px 10px
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 700
+    line-height: 1
+    letter-spacing: 1px
+    color: #fff
+    background-color: #e14f4f
+
+    #{$block}_state_error &
+      display: block
 
 

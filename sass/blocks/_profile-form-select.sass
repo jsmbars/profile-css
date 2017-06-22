@@ -37,6 +37,10 @@ $block: ".profile-form-select"
   &_no-label
     padding-top: 20px
 
+  &_state_error
+    @media screen and (max-width: 960px)
+      margin-bottom: 25px
+
 
   // $Common form select label
   &__label
@@ -123,9 +127,14 @@ $block: ".profile-form-select"
       background-color: #FCFCFC
       transition: all .3s
 
+      #{$block}_state_success &
+        border: 2px solid #4ec351
+        color: #4ec351
+
       #{$block}_state_error &
-        border-color: #ed7f7e
-        color: #ed7f7e
+        border: 2px solid #e14f4f
+        border-bottom-right-radius: 0
+        color: #e14f4f
 
       &::-ms-expand
         display: none
@@ -136,6 +145,11 @@ $block: ".profile-form-select"
 
       &:invalid
         color: #acacac
+        outline: none
+        box-shadow: none
+
+        #{$block}_state_error &
+          color: #e14f4f
 
     // $Common form select option
     & option
@@ -158,3 +172,23 @@ $block: ".profile-form-select"
     font-size: 14px
     line-height: 1
     color: #333
+
+
+  // $Common form select error
+  &__error
+    position: absolute
+    top: 100%
+    right: 0
+    z-index: 10
+    display: none
+    padding: 4px 8px 8px 10px
+    font-family: $f-sans
+    font-size: 14px
+    font-weight: 700
+    line-height: 1
+    letter-spacing: 1px
+    color: #fff
+    background-color: #e14f4f
+
+    #{$block}_state_error &
+      display: block

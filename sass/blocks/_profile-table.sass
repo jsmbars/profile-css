@@ -23,11 +23,10 @@ $block: ".profile-table"
   border-radius: 10px
   overflow: hidden
 
-  &_page_positions
-    @media screen and (max-width: 960px)
-      border: none
-      border-radius: 0
-      overflow: auto
+  @media screen and (max-width: 960px)
+    border: none
+    border-radius: 0
+    overflow: auto
 
 
   // $Common table row
@@ -44,29 +43,26 @@ $block: ".profile-table"
     overflow: hidden
 
     @media screen and (max-width: 960px)
-      #{$block}_page_positions &
-        flex-direction: column
-        justify-content: flex-start
-        align-items: flex-start
-        margin-bottom: 15px
-        border: 1px solid #e1e1e1
-        border-radius: 10px
-        background-color: #FFF
+      flex-direction: column
+      justify-content: flex-start
+      align-items: flex-start
+      margin-bottom: 15px
+      border: 1px solid #e1e1e1
+      border-radius: 10px
+      background-color: #FFF
 
     &:last-of-type
       border-bottom: none
 
       @media screen and (max-width: 960px)
-        #{$block}_page_positions &
-          border: 1px solid #e1e1e1
+        border: 1px solid #e1e1e1
 
     // $Common table row MOD: role header
     &_role_header
       background-color: #f7f7f7
 
       @media screen and (max-width: 960px)
-        #{$block}_page_positions &
-          display: none
+        display: none
 
 
   // $Common table cell
@@ -82,17 +78,14 @@ $block: ".profile-table"
 
     @media screen and (max-width: 960px)
       padding: 10px
-
-      #{$block}_page_positions &
-        justify-content: center
+      justify-content: center
 
     &:not(:last-child)
       border-right: 1px solid #e1e1e1
 
       @media screen and (max-width: 960px)
-        #{$block}_page_positions &
-          border-right: none
-          border-bottom: 1px solid #e1e1e1
+        border-right: none
+        border-bottom: 1px solid #e1e1e1
 
     // $Common table cell first column
     &:nth-child(1)
@@ -103,8 +96,7 @@ $block: ".profile-table"
         width: 100%
 
       @media screen and (max-width: 960px)
-        #{$block}_page_positions &
-          background-color: #F7F7F7
+        background-color: #F7F7F7
 
 
     // $Common table cell second column
@@ -120,9 +112,7 @@ $block: ".profile-table"
         width: 230px
 
       @media screen and (max-width: 960px)
-        #{$block}_page_users &
-          width: 110px
-
+        #{$block}_page_users &,
         #{$block}_page_positions &
           flex-grow: 1
           flex-shrink: 1
@@ -153,8 +143,7 @@ $block: ".profile-table"
     color: #5b5b5b
 
     @media screen and (max-width: 960px)
-      #{$block}_page_positions &
-        text-align: center
+      text-align: center
 
     &_role_position
 
@@ -186,8 +175,7 @@ $block: ".profile-table"
     align-items: center
 
     @media screen and (max-width: 960px)
-      #{$block}_page_positions &
-        justify-content: center
+      justify-content: center
 
 
   // $Common table action
