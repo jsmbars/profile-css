@@ -7,6 +7,10 @@
 // VENDOR...............................
 //
 // HELPERS..............................Variables, mixins, elements
+//  $Fonts..............................Offline and online fonts
+//  $Settings...........................Site settings
+//  $Mixins.............................Site mixins
+//  $Base...............................Some general styles
 //
 // BLOCKS...............................Page components
 
@@ -14,6 +18,21 @@
 ////////////////////////////////////////
 /// $VENDOR
 ////////////////////////////////////////
+
+// $Fonts
+@import './helpers/fonts'
+
+// $Settings
+@import './helpers/settings'
+
+// $Mixins
+@import './helpers/mixins'
+
+// $Reset
+@import './helpers/reset'
+
+// $Base
+@import './helpers/base'
 
 
 ////////////////////////////////////////
@@ -24,3 +43,36 @@
 ////////////////////////////////////////
 /// $BLOCKS
 ////////////////////////////////////////
+
+// $Common button
+@import './blocks/profile-button'
+
+// $Common form
+@import './blocks/profile-form'
+
+// $Common form field
+@import './blocks/profile-form-field'
+
+// $Common form select
+@import './blocks/profile-form-select'
+
+// $Common table
+@import './blocks/profile-table'
+
+// $Body
+@import './blocks/profile-body'
+
+// $Page header
+@import './blocks/profile-page-header'
+
+// $Page content
+@import './blocks/profile-page-content'
+
+// $Navigation bar
+@import './blocks/profile-navbar'
+
+// $Breadcrumbs
+@import './blocks/profile-breadcrumbs'
+
+// $Modal window
+@import './blocks/profile-modal'

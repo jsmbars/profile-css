@@ -1,0 +1,183 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Navigation bar
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".profile-navbar"
+
+#{$block}
+  position: relative
+  display: block
+  width: 100%
+
+
+  // $Navigation bar links
+  &__links
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
+    @media screen and (max-width: 960px)
+      flex-direction: row
+
+
+
+  // $Navigation bar link
+  &__link
+    position: relative
+    display: block
+    width: 100%
+    height: 130px
+    padding: 30px 10px
+    text-align: center
+    cursor: pointer
+    font-size: 14px
+    line-height: 1
+    font-family: $f-sans
+    font-weight: 800
+    text-decoration: none
+    color: #9097a8
+    outline: none
+    border-bottom: 1px solid #454344
+
+    @media screen and (max-width: 960px)
+      height: 65px
+      padding: 20px 10px
+      border-bottom: none
+      border-right: 1px solid #454344
+
+    &:before
+      content: ""
+      display: inline-block
+      margin-bottom: 15px
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: contain
+
+    &:hover,
+    &_state_active
+      color: #fff
+
+    &:focus
+      outline: none
+
+    &:last-of-type
+      @media screen and (max-width: 960px)
+        border-right: none
+
+    // $Navigation bar link MOD: state active
+    &_state_active
+      cursor: default
+
+      &:after
+        content: ""
+        position: absolute
+        top: 50%
+        right: 0
+        display: block
+        margin-top: -10px
+        border-right: 10px solid #ecedf1
+        border-top: 10px solid transparent
+        border-bottom: 10px solid transparent
+
+        @media screen and (max-width: 960px)
+          top: auto
+          right: 50%
+          bottom: 0
+          margin-top: 0
+          margin-right: -10px
+          border-bottom: 10px solid #ecedf1
+          border-right: 10px solid transparent
+          border-left: 10px solid transparent
+
+    // $Navigation bar link MOD: role users
+    &_role_users
+      &:before
+        width: 41px
+        height: 41px
+        background-image: url('../icons/icon-user-medium-gray.png')
+
+        @media screen and (max-width: 960px)
+          width: 28px
+          height: 26px
+
+
+    // $Navigation bar link MOD: role users state active
+    &_role_users#{&}_state_active,
+    &_role_users:hover
+      &:before
+        background-image: url('../icons/icon-user-white.png')
+
+    // $Navigation bar link MOD: role positions
+    &_role_positions
+      &:before
+        width: 41px
+        height: 41px
+        background-image: url('../icons/icon-case-medium-gray.png')
+
+        @media screen and (max-width: 960px)
+          width: 28px
+          height: 26px
+
+
+    // $Navigation bar link MOD: role positions state active
+    &_role_positions#{&}_state_active,
+    &_role_positions:hover
+      &:before
+        background-image: url('../icons/icon-case-white.png')
+
+    // $Navigation bar link MOD: role sites
+    &_role_sites
+      &:before
+        width: 41px
+        height: 41px
+        background-image: url('../icons/icon-globe-medium-gray.png')
+
+        @media screen and (max-width: 960px)
+          width: 26px
+          height: 26px
+
+    // $Navigation bar link MOD: role sites state active
+    &_role_sites#{&}_state_active,
+    &_role_sites:hover
+      &:before
+        background-image: url('../icons/icon-globe-white.png')
+
+    // $Navigation bar link MOD: role apps
+    &_role_apps
+      &:before
+        width: 41px
+        height: 41px
+        background-image: url('../icons/icon-screen-medium-gray.png')
+
+        @media screen and (max-width: 960px)
+          width: 28px
+          height: 26px
+
+    // $Navigation bar link MOD: role apps state active
+    &_role_apps#{&}_state_active,
+    &_role_apps:hover
+      &:before
+        background-image: url('../icons/icon-screen-white.png')
+
+
+  // $Navigation bar link text
+  &__link-text
+    position: relative
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+
+    @media screen and (max-width: 960px)
+      display: none
