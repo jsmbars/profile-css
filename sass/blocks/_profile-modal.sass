@@ -16,29 +16,16 @@ $block: ".profile-modal"
 
 #{$block}
   position: relative
-  z-index: 10002
   display: block
-  background-color: #FFF
+  background-color: map-get($app-palette, bg-light)
   border-radius: 10px
   overflow: hidden
   width: 95%
   max-width: 800px
   margin: 100px auto 100px
 
-  @media screen and (max-width: 480px)
-    margin-top: 50px
-    margin-bottom: 50px
-
-  // $Modal window MOD: role confirm dialog
-  &_role_confirm
-    max-width: 480px
-    margin-top: 150px
-    margin-bottom: 150px
-
-    @media screen and (max-width: 480px)
-      margin-top: 100px
-      margin-bottom: 100px
-
+  &-portal &
+    z-index: 10002
 
   // $Modal window MOD: state visible
   &_state_visible
@@ -50,35 +37,33 @@ $block: ".profile-modal"
 
 
   // $Modal window header
-  &__header
+  // $Modal window footer
+  &__header,
+  &__footer
     width: 100%
-    padding: 35px 20px
-    background-color: #f9f9f9
+    padding: 30px 20px
+    background-color: map-get($app-palette, bg-secondary)
     text-align: center
-
-    @media screen and (max-width: 960px)
-      padding: 20px
 
 
   // $Modal window content
   &__content
     width: 100%
-    padding: 35px 20px 45px
-
-    @media screen and (max-width: 960px)
-      padding: 30px 20px 30px
-
-    // $Modal window content MOD: justify center
-    &_justify_center
-      text-align: center
+    padding: 30px 20px
 
 
-  // $Modal window footer
-  &__footer
+  // $Modal window content group
+  &__group
     width: 100%
-    padding: 35px 20px
-    background-color: #f9f9f9
-    text-align: center
+
+    &:not(:last-child)
+      margin-bottom: 30px
+
+    &_role_actions-middle
+      display: flex
+      flex-direction: row
+      justify-content: center
+      align-items: center
 
 
   // $Modal window actions
@@ -88,58 +73,33 @@ $block: ".profile-modal"
     align-items: center
     justify-content: center
     width: 100%
-
-    @media screen and (max-width: 480px)
-      // $Modal window actions CONTEXT: $Modal window MOD: confirm dialog
-      #{$block}_role_confirm &
-        flex-direction: column
+    padding: 30px 20px
 
 
   // $Modal window action
   &__action
 
-    @media screen and (max-width: 480px)
-      // $Modal window action CONTEXT: $Modal window MOD: confirm dialog
-      #{$block}_role_confirm &
-        width: 100%
-
     &:not(:last-child)
       margin-right: 20px
-
-      @media screen and (max-width: 480px)
-        #{$block}_role_confirm &
-          margin-right: 0
-          margin-bottom: 20px
-
-
-  // $Modal window inner container
-  &__inner
-    max-width: 400px
-    margin: 0 auto
 
 
   // $Modal window image
   &__image
     display: inline-block
-    margin-bottom: 30px
-
-    @media screen and (max-width: 960px)
-      margin-bottom: 20px
+    width: 100%
+    max-width: 200px
+    margin-bottom: 20px
 
 
   // $Modal window title
   &__title
-    margin-bottom: 25px
+    margin-bottom: 20px
     font-family: $f-sans
     font-size: 30px
     line-height: 1
-    font-weight: 800
-    color: #333
-    text-transform: uppercase
+    font-weight: 600
+    color: map-get($app-palette, text-primary)
     text-align: center
-
-    @media screen and (max-width: 960px)
-      margin-bottom: 15px
 
     &:last-child
       margin-bottom: 0
@@ -150,11 +110,8 @@ $block: ".profile-modal"
     font-family: $f-sans
     font-size: 20px
     line-height: 1.5
-    color: #757575
-    font-weight: 500
-
-    &_size_extra
-      font-size: 22px
+    color: map-get($app-palette, text-secondary)
+    font-weight: 400
 
 
   // $Modal window text
@@ -162,17 +119,23 @@ $block: ".profile-modal"
     font-family: $f-sans
     font-size: 14px
     line-height: 1.5
-    color: #757575
+    color: map-get($app-palette, text-primary)
     font-weight: 500
 
 
-  // $Modal window form
-  &__form
-    padding: 0 30px
+  // $Modal window link
+  &__link
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
+    font-weight: 400
+    color: map-get($app-palette, text-secondary)
+    text-decoration: none
+    opacity: 1
+    transition: all .3s
 
-    @media screen and (max-width: 960px)
-      padding: 0
-      padding: 0
+    &:hover
+      opacity: 0.8
 
 
   @at-root
@@ -198,10 +161,4 @@ $block: ".profile-modal"
       z-index: 10001
       overflow-x: hidden
       overflow-y: auto
-
-      // $Modal window overlay MOD: dark overlay
-      &_dark
-        background-color: rgba(0,0,0,.75)
-
-
-
+      background-color: rgba(0,0,0,.75)

@@ -10,95 +10,104 @@
 
 //////////////////////////////////////// Block mixins and functions
 
-=button-common($background-color: #64a5fd )
+=button-common($background-color: map-get($app-palette, dark-gray), $color: #fff )
   background-color: $background-color
+  color: $color
 
 
-=button-common-hover-behavior($background-color, $amount: 3%)
+=button-common-hover($background-color, $amount: 5%)
 
-  &:hover
+  &:not(.stock-button_type_no-behavior):hover
     background-color: lighten($background-color, $amount)
 
 
-=button-bordered($color: '#d3d3d3', $border-color: '#d3d3d3', $bg-color: '#fff')
-  border: 2px solid $border-color
-  border-radius: 5px
+=button-bordered($color: map-get($app-palette, dark-gray), $border-color: map-get($app-palette, dark-gray), $border-width: 2px, $border-radius: 4px, $bg-color: map-get($app-palette, bg-light))
+  border: $border-width solid $border-color
+  border-radius: $border-radius
   background-color: $bg-color
   color: $color
 
 
-=button-bordered-hover-behavior($color: '#d3d3d3', $border-color: '#d3d3d3', $bg-color: '#fff', $icon-hover-url: '')
+=button-bordered-hover($color:#fff, $border-color:map-get($app-palette, dark-gray), $bg-color: map-get($app-palette, dark-gray))
 
-  &:hover
+  &:not(.stock-button_type_no-behavior):hover
     color: $color
+    border-color: $border-color
     background-color: $bg-color
 
-    &:after,
-    &:before
-      background-image: url($icon-hover-url)
 
-
-=button-bordered-active-behavior($color: '#d3d3d3', $border-color: '#d3d3d3', $bg-color: '#fff', $icon-active-url: '')
+=button-bordered-active($color: #fff, $border-color: map-get($app-palette, dark-gray), $bg-color: map-get($app-palette, dark-gray))
 
   &#{$block}_state_active
     color: $color
+    border-color: $border-color
     background-color: $bg-color
 
-    &:after,
-    &:before
-      background-image: url($icon-active-url)
 
-
-=button-with-icon-left($icon-url: '', $background-size: 13px)
+=button-with-icon-left($icon: '', $icon-color: #fff, $icon-hover-color: null, $icon-active-color: null, $size: 18px)
 
   &:before
-    content: ""
+    content: '#{$icon}'
     display: inline-block
-    width: $background-size
-    height: $background-size
-    margin-right: 10px
-    line-height: 100%
+    margin-right: 8px
+    font-family: icons
+    font-size: $size
+    line-height: 14px
+    color: $icon-color
+    font-weight: normal
     vertical-align: middle
-    background-image: url($icon-url)
-    background-repeat: no-repeat
-    background-position: center center
-    background-size: contain
+
+  @if $icon-hover-color != null
+    &:hover
+      &:before
+        color: $icon-hover-color
+
+  @if $icon-active-color != null
+    &#{$block}_state_active
+      &:before
+        color: $icon-active-color
 
 
-=button-with-icon-right($icon-url: '', $background-size: 13px)
+=button-with-icon-right($icon: '', $icon-color: #fff, $icon-hover-color: null, $icon-active-color: null, $size: 18px)
 
   &:after
-    content: ""
+    content: '#{$icon}'
     display: inline-block
-    width: $background-size
-    height: $background-size
-    margin-left: 10px
-    line-height: 100%
+    margin-left: 8px
+    font-family: icons
+    font-size: $size
+    line-height: 1
+    color: $icon-color
+    font-weight: normal
     vertical-align: middle
-    background-image: url($icon-url)
-    background-repeat: no-repeat
-    background-position: center center
-    background-size: auto $background-size
+
+  @if $icon-hover-color != null
+    &:hover
+      &:after
+        color: $icon-hover-color
+
+  @if $icon-active-color != null
+    &#{$block}_state_active
+      &:after
+        color: $icon-active-color
 
 
 //////////////////////////////////////// Block styles
 $block: ".profile-button"
 
 #{$block}
-  $background-color: #64a5fd
+  $background-color: map-get($app-palette, dark-gray)
 
   +button-common($background-color: $background-color)
-  +button-common-hover-behavior($background-color: $background-color)
+  +button-common-hover($background-color: $background-color)
 
   display: inline-block
-  min-height: 40px
-  padding: 13px 20px
-  border-radius: 5px
+  padding: 12px 24px
+  border-radius: 4px
   font-family: $f-sans
   font-size: 14px
   line-height: 1
-  color: #fff
-  font-weight: 700
+  font-weight: 300
   text-decoration: none
   white-space: nowrap
   vertical-align: middle
@@ -106,7 +115,7 @@ $block: ".profile-button"
   outline: none
   cursor: pointer
   border: none
-  transition: all .4s
+  transition: all .3s
 
   &:hover
     color: #FFF
@@ -114,22 +123,30 @@ $block: ".profile-button"
   &:focus
     outline: none
 
-  // $Common button MOD: size full
-  &_size_full
-    display: block
-    width: 100%
+  // $Common button MOD: size large
+  &_size_l
+    padding: 16px 32px
+    font-size: 16px
+
+  // $Common button MOD: size medium
+  &_size_m
+    padding: 12px 24px
 
   // $Common button MOD: size small
   &_size_s
-    min-height: 32px
-    padding: 7px 11px
+    padding: 8px 16px
 
-  // $Common button MOD: size fluid
-  &_size_fluid
-    @media screen and (max-width: 960px)
-      display: block
-      width: 100%
+  // $Common button MOD: size extra small
+  &_size_xs
+    padding: 6px 12px
 
+  // $Common button MOD: space left
+  &_space_left
+    margin-left: 15px
+
+  // $Common button MOD: space right
+  &_space_right
+    margin-right: 15px
 
   // $Common button MOD: state disabled
   &_state_disabled[disabled],
@@ -160,6 +177,9 @@ $block: ".profile-button"
     @media screen and (max-width: 960px)
       display: none
 
+  &_type_no-behavior
+    cursor: default !important
+
 
   // $Common button text
   &__text
@@ -169,76 +189,98 @@ $block: ".profile-button"
   // $Common button variations:
 
   // Color modifiers
-  // $Common button MOD: role primary
-  &_role_primary
-    $background-color: #2e91ba
+  &_color_accent-blue
+    $background-color: map-get($app-palette, accent-blue)
     +button-common($background-color: $background-color)
-    +button-common-hover-behavior($background-color: $background-color)
+    +button-common-hover($background-color: $background-color)
 
-  // $Common button MOD: role secondary
-  &_role_secondary
-    $background-color: #4ec351
+  &_color_accent-red
+    $background-color: map-get($app-palette, accent-red)
     +button-common($background-color: $background-color)
-    +button-common-hover-behavior($background-color: $background-color)
+    +button-common-hover($background-color: $background-color)
 
-  // $Common button MOD: role alert
-  &_role_alert
-    $background-color: #d15d5d
+  &_color_accent-yellow
+    $background-color: map-get($app-palette, accent-yellow)
     +button-common($background-color: $background-color)
-    +button-common-hover-behavior($background-color: $background-color)
+    +button-common-hover($background-color: $background-color)
+
+  &_color_accent-green
+    $background-color: map-get($app-palette, accent-green)
+    +button-common($background-color: $background-color)
+    +button-common-hover($background-color: $background-color)
+
+  &_color_accent-purple
+    $background-color: map-get($app-palette, accent-purple)
+    +button-common($background-color: $background-color)
+    +button-common-hover($background-color: $background-color)
+
+  &_color_accent-pink
+    $background-color: map-get($app-palette, accent-pink)
+    +button-common($background-color: $background-color)
+    +button-common-hover($background-color: $background-color)
+
+
+  // Border modifiers
+  &_border_accent-blue
+    +button-bordered($color: map-get($app-palette, accent-blue), $bg-color: transparent, $border-color: map-get($app-palette, accent-blue))
+    +button-bordered-hover($color: #fff, $bg-color: map-get($app-palette, accent-blue), $border-color: map-get($app-palette, accent-blue))
+    +button-bordered-active($color: #fff, $bg-color: map-get($app-palette, accent-blue), $border-color: map-get($app-palette, accent-blue))
+
+  &_border_accent-red
+    +button-bordered($color: map-get($app-palette, accent-red), $bg-color: transparent, $border-color: map-get($app-palette, accent-red))
+    +button-bordered-hover($color: #fff, $bg-color: map-get($app-palette, accent-red), $border-color: map-get($app-palette, accent-red))
+    +button-bordered-active($color: #fff, $bg-color: map-get($app-palette, accent-red), $border-color: map-get($app-palette, accent-red))
+
+  &_border_accent-yellow
+    +button-bordered($color: map-get($app-palette, accent-yellow), $bg-color: transparent, $border-color: map-get($app-palette, accent-yellow))
+    +button-bordered-hover($color: #fff, $bg-color: map-get($app-palette, accent-yellow), $border-color: map-get($app-palette, accent-yellow))
+    +button-bordered-active($color: #fff, $bg-color: map-get($app-palette, accent-yellow), $border-color: map-get($app-palette, accent-yellow))
+
+  &_border_accent-green
+    +button-bordered($color: map-get($app-palette, accent-green), $bg-color: transparent, $border-color: map-get($app-palette, accent-green))
+    +button-bordered-hover($color: #fff, $bg-color: map-get($app-palette, accent-green), $border-color: map-get($app-palette, accent-green))
+    +button-bordered-active($color: #fff, $bg-color: map-get($app-palette, accent-green), $border-color: map-get($app-palette, accent-green))
+
+  &_border_accent-purple
+    +button-bordered($color: map-get($app-palette, accent-purple), $bg-color: transparent, $border-color: map-get($app-palette, accent-purple))
+    +button-bordered-hover($color: #fff, $bg-color: map-get($app-palette, accent-purple), $border-color: map-get($app-palette, accent-purple))
+    +button-bordered-active($color: #fff, $bg-color: map-get($app-palette, accent-purple), $border-color: map-get($app-palette, accent-purple))
+
+  &_border_accent-pink
+    +button-bordered($color: map-get($app-palette, accent-pink), $bg-color: transparent, $border-color: map-get($app-palette, accent-pink))
+    +button-bordered-hover($color: #fff, $bg-color: map-get($app-palette, accent-pink), $border-color: map-get($app-palette, accent-pink))
+    +button-bordered-active($color: #fff, $bg-color: map-get($app-palette, accent-pink), $border-color: map-get($app-palette, accent-pink))
+
 
 
   // Icon modifiers
+  // $Common button MOD: icon plus
+  &_icon_plus
+    +button-with-icon-left($icon: '\e90a')
+
+  &_icon_plus#{&}_border_accent-blue
+    +button-with-icon-left($icon: '\e90a', $icon-color: map-get($app-palette, accent-blue), $icon-hover-color: #fff, $icon-active-color: #fff)
+
+  // $Common button MOD: icon check
+  &_icon_check
+    +button-with-icon-left($icon: '\e90d')
+
+  &_icon_check#{&}_border_accent-green
+    +button-with-icon-left($icon: '\e90d', $icon-color: map-get($app-palette, accent-green), $icon-hover-color: #fff, $icon-active-color: #fff)
 
   // $Common button MOD: icon close
   &_icon_close
-    +button-with-icon-left($icon-url: '../icons/icon-close-white.svg', $background-size: 11px)
+    +button-with-icon-left($icon: '\e909')
 
-  // $Common button MOD: icon checked
-  &_icon_checked
-    +button-with-icon-left($icon-url: '../icons/icon-checked-white.svg')
+  &_icon_close#{&}_border_accent-red
+    +button-with-icon-left($icon: '\e909', $icon-color: map-get($app-palette, accent-red), $icon-hover-color: #fff, $icon-active-color: #fff)
+
+  // $Common button MOD: icon pencil
+  &_icon_pencil
+    +button-with-icon-left($icon: '\e91d', $size: 14px)
+
+  &_icon_pencil#{&}_border_accent-green
+    +button-with-icon-left($icon: '\e91d', $icon-color: map-get($app-palette, accent-green), $icon-hover-color: #fff, $icon-active-color: #fff, $size: 14px)
 
 
   // Specific buttons
-
-  &_role_logout
-    $background-color: #d15d5d
-    +button-common($background-color: $background-color)
-    +button-common-hover-behavior($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/icon-power-white.svg', $background-size: 16px)
-
-    @media screen and (max-width: 960px)
-      padding-left: 15px
-      padding-right: 15px
-
-      &:before
-        margin-right: 0
-
-      & > span
-        display: none
-
-  &_role_add
-    $background-color: #2e91ba
-    +button-common($background-color: $background-color)
-    +button-common-hover-behavior($background-color: $background-color)
-    +button-with-icon-left($icon-url: '../icons/icon-plus-white.svg')
-
-    @media screen and (max-width: 960px)
-      padding-left: 15px
-      padding-right: 15px
-
-      &:before
-        margin-right: 0
-
-      & > span
-        display: none
-
-  &_role_action-save
-    +button-bordered($color: #4ec351, $bg-color: #fff, $border-color: #4ec351)
-    +button-with-icon-left($icon-url: '../icons/icon-checked-green.svg', $background-size: 14px)
-    +button-bordered-hover-behavior($color: #fff, $bg-color: #4ec351, $border-color: #fff, $icon-hover-url: '../icons/icon-checked-white.svg')
-
-  &_role_action-delete
-    +button-bordered($color: #d15d5d, $bg-color: #fff, $border-color: #d15d5d)
-    +button-with-icon-left($icon-url: '../icons/icon-close-red.svg', $background-size: 11px)
-    +button-bordered-hover-behavior($color: #fff, $bg-color: #d15d5d, $border-color: #fff, $icon-hover-url: '../icons/icon-close-white.svg')

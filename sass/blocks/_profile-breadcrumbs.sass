@@ -25,7 +25,7 @@ $block: ".profile-breadcrumbs"
     font-size: 14px
     line-height: 1
     font-weight: 700
-    color: #333
+    color: map-get($app-palette, text-primary)
     text-decoration: none
     outline: none
 
@@ -43,7 +43,7 @@ $block: ".profile-breadcrumbs"
 
     // $Breadcrumbs link MOD: state current
     &_state_current
-      color: #8b8b8b
+      color: map-get($app-palette, text-secondary)
       cursor: default
 
       &:after
