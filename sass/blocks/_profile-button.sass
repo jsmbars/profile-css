@@ -102,7 +102,7 @@ $block: ".profile-button"
   +button-common-hover($background-color: $background-color)
 
   display: inline-block
-  padding: 12px 24px
+  padding: 12px 20px
   border-radius: 4px
   font-family: $f-sans
   font-size: 14px
@@ -125,20 +125,20 @@ $block: ".profile-button"
 
   // $Common button MOD: size large
   &_size_l
-    padding: 16px 32px
+    padding: 17px 25px
     font-size: 16px
 
   // $Common button MOD: size medium
   &_size_m
-    padding: 12px 24px
+    padding: 12px 20px
 
   // $Common button MOD: size small
   &_size_s
-    padding: 8px 16px
+    padding: 7px 15px
 
   // $Common button MOD: size extra small
   &_size_xs
-    padding: 6px 12px
+    padding: 5px 10px
 
   // $Common button MOD: space left
   &_space_left
@@ -177,13 +177,39 @@ $block: ".profile-button"
     @media screen and (max-width: 960px)
       display: none
 
+  // $Common button MOD: type no-behavior
   &_type_no-behavior
     cursor: default !important
+
+  // $Common button MOD: type icon
+  &_type_icon
+    &:before
+      margin-right: 0 !important
+
+    &:after
+      margin-left: 0 !important
+
+  // $Common button MOD: type icon mobile
+  &_type_icon-mobile
+    &:before
+      @media screen and (max-width: 960px)
+        margin-right: 0 !important
+
+    &:after
+      @media screen and (max-width: 960px)
+        margin-left: 0 !important
 
 
   // $Common button text
   &__text
     vertical-align: middle
+
+    #{$block}_type_icon &
+      display: none
+
+    @media screen and (max-width: 960px)
+      #{$block}_type_icon-mobile &
+        display: none
 
 
   // $Common button variations:
@@ -279,8 +305,8 @@ $block: ".profile-button"
   &_icon_pencil
     +button-with-icon-left($icon: '\e91d', $size: 14px)
 
-  &_icon_pencil#{&}_border_accent-green
-    +button-with-icon-left($icon: '\e91d', $icon-color: map-get($app-palette, accent-green), $icon-hover-color: #fff, $icon-active-color: #fff, $size: 14px)
+  &_icon_pencil#{&}_border_accent-yellow
+    +button-with-icon-left($icon: '\e91d', $icon-color: map-get($app-palette, accent-yellow), $icon-hover-color: #fff, $icon-active-color: #fff, $size: 14px)
 
 
   // Specific buttons

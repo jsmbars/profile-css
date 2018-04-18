@@ -17,108 +17,113 @@ $block: ".profile-table"
 #{$block}
   position: relative
   z-index: 10
-  display: table
+  display: block
   width: 100%
-  border: 1px solid #e1e1e1
-  border-radius: 10px
+  border: 1px solid map-get($app-palette, border-primary)
   overflow: hidden
 
-  @media screen and (max-width: 640px)
-    display: block
-    border: none
-    border-radius: 0
-    overflow: auto
+  // $Common table MOD: type common
+  &_type_common
+    display: table
+
+  &_page_users,
+  &_page_roles,
+  &_page_sites
+    @media screen and (max-width: 960px)
+      display: none
 
 
   // $Common table row
   &__row
-    position: relative
-    z-index: 9
-    display: table-row
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: stretch
     width: 100%
-    background-color: #fcfcfc
+    background-color: map-get($app-palette, bg-light)
     overflow: hidden
 
-    @media screen and (max-width: 640px)
-      display: block
-      margin-bottom: 15px
-      border: 1px solid #e1e1e1
-      border-radius: 10px
-      background-color: #FFF
+    #{$block}_type_common &
+      display: table-row
 
     &:last-of-type
       border-bottom: none
 
-      @media screen and (max-width: 640px)
-        border: 1px solid #e1e1e1
+    &:nth-child(odd)
+      background-color: map-get($app-palette, bg-secondary)
 
     // $Common table row MOD: role header
     &_role_header
-      background-color: #f7f7f7
-
-      @media screen and (max-width: 640px)
-        display: none
+      background-color: map-get($app-palette, bg-secondary)
 
 
   // $Common table cell
   &__cell
-    display: table-cell
-    text-align: left
-    vertical-align: middle
-    height: 50px
-    padding: 10px 20px
-    border-bottom: 1px solid #e1e1e1
+    flex-grow: 1
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    min-height: 50px
+    padding: 10px 15px
+    border-bottom: 1px solid map-get($app-palette, border-primary)
 
-    @media screen and (max-width: 640px)
-      display: flex
-      flex-direction: row
-      justify-content: center
-      align-items: center
-      height: auto
-      min-height: 50px
-      padding: 10px
-      text-align: center
+    #{$block}__row:last-child &
       border-bottom: none
 
-    &:not(:last-child)
-      border-right: 1px solid #e1e1e1
+    #{$block}_type_common &
+      height: 50px
+      text-align: left
+      vertical-align: middle
+      border-bottom: 1px solid map-get($app-palette, border-primary)
 
-      @media screen and (max-width: 640px)
-        border-right: none
-        border-bottom: 1px solid #e1e1e1
+    &:not(:last-child)
+      border-right: 1px solid map-get($app-palette, border-primary)
 
     // $Common table cell first column
     &:nth-child(1)
       #{$block}_page_users &
-        width: 100%
+        width: calc(100% - 260px)
 
-      #{$block}_page_positions &
-        width: 100%
+      #{$block}_page_roles &
+        width: calc(100% - 260px)
 
-      @media screen and (max-width: 640px)
-        background-color: #F7F7F7
-
+      #{$block}_page_sites &
+        width: calc(70% - 150px)
 
     // $Common table cell second column
     &:nth-child(2)
       #{$block}_page_users &
         flex-grow: 0
         flex-shrink: 0
-        min-width: 150px
+        width: 130px
 
-      #{$block}_page_positions &
+      #{$block}_page_roles &
         flex-grow: 0
         flex-shrink: 0
-        min-width: 230px
+        width: 260px
 
-      @media screen and (max-width: 640px)
-        #{$block}_page_users &,
-        #{$block}_page_positions &
-          flex-grow: 1
-          flex-shrink: 1
-          width: 100%
-          min-width: 0
-          background-color: #FFF
+      #{$block}_page_sites &
+        width: 15%
+        max-width: 150px
+
+    // $Common table cell third column
+    &:nth-child(3)
+      #{$block}_page_users &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 130px
+
+      #{$block}_page_sites &
+        width: 15%
+        max-width: 150px
+
+    // $Common table cell fourth column
+    &:nth-child(4)
+      #{$block}_page_sites &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 150px
 
     // $Common table cell MOD: role header
     // $Common table cell MOD: role footer
@@ -127,49 +132,39 @@ $block: ".profile-table"
       height: 50px
       font-size: 14px
       font-family: $f-sans
-      font-weight: 800
-      color: #333
+      font-weight: 600
+      color: map-get($app-palette, text-primary)
       text-transform: uppercase
 
-      @media screen and (max-width: 640px)
-        height: auto
-        min-height: 50px
+    &_role_header
+      &:nth-child(2)
+        #{$block}_page_users &,
+        #{$block}_page_sites &
+          justify-content: center
+          text-align: center
+
+      &:nth-child(3)
+        #{$block}_page_sites &
+          justify-content: center
+          text-align: center
 
 
   // $Common table info
   &__info
+    width: 100%
+
+    #{$block}_page_users #{$block}__cell:nth-child(2) &,
+    #{$block}_page_sites #{$block}__cell:nth-child(2) &,
+    #{$block}_page_sites #{$block}__cell:nth-child(3) &
+      text-align: center
 
 
   // $Common table text
   &__text
     font-family: $f-sans
     font-size: 14px
-    font-weight: 700
-    color: #5b5b5b
-
-    @media screen and (max-width: 640px)
-      text-align: center
-
-    &_role_position
-
-      @media screen and (max-width: 640px)
-        position: relative
-        padding-left: 28px
-
-      &:before
-        @media screen and (max-width: 640px)
-          content: ""
-          position: absolute
-          top: 50%
-          left: 0
-          display: block
-          width: 16px
-          height: 14px
-          background-image: url('../icons/icon-case-fill-dark-gray.svg')
-          background-repeat: no-repeat
-          background-size: contain
-          background-position: center center
-          transform: translateY(-50%)
+    font-weight: 400
+    color: map-get($app-palette, text-primary)
 
 
   // $Common table actions
@@ -179,14 +174,15 @@ $block: ".profile-table"
     justify-content: flex-start
     align-items: center
 
-    @media screen and (max-width: 640px)
+    #{$block}_page_users #{$block}__cell:nth-child(3) &
       justify-content: center
+
+    #{$block}_page_roles #{$block}__cell:nth-child(2) &
+      justify-content: flex-end
 
 
   // $Common table action
   &__action
-    margin-right: 15px
-
-    &:last-child
-      margin-right: 0
+    &:not(:last-child)
+      margin-right: 15px
 

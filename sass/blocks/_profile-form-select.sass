@@ -55,7 +55,7 @@ $block: ".profile-form-select"
     font-family: $f-sans
     font-size: 14px
     color: map-get($app-palette, text-primary)
-    font-weight: 600
+    font-weight: 400
     line-height: 1
 
     // $Common form select label text CONTEXT: $Common form select MOD: role control
@@ -141,8 +141,8 @@ $block: ".profile-form-select"
     & select
       display: block
       width: 100%
-      min-height: 40px
-      padding: 12px 45px 12px 15px
+      height: 40px
+      padding: 10px 45px 10px 15px
       font-family: $f-sans
       font-size: 14px
       color: map-get($app-palette, text-primary)
@@ -161,6 +161,10 @@ $block: ".profile-form-select"
       #{$block}_state_error &
         border-color: map-get($app-palette, accent-red)
         color: map-get($app-palette, accent-red)
+
+      #{$block}_size_narrow &
+        height: 30px
+        padding: 7px 45px 7px 15px
 
       &:invalid
         box-shadow: none
@@ -192,6 +196,9 @@ $block: ".profile-form-select"
       line-height: 1.5
       outline: none
       border: none
+
+      &:disabled
+        color: map-get($app-palette, text-secondary)
 
 
   // $Common form select note

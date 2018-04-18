@@ -46,27 +46,28 @@ $block: ".profile-navbar"
     font-family: $f-sans
     font-weight: 800
     text-decoration: none
-    color: #9097a8
+    color: map-get($app-palette, text-secondary)
     outline: none
-    border-bottom: 1px solid #454344
+    border-bottom: 1px solid map-get($app-palette, medium-gray)
+    transition: all .3s
 
     @media screen and (max-width: 960px)
-      height: 65px
-      padding: 20px 10px
+      height: 75px
+      padding: 10px
       border-bottom: none
-      border-right: 1px solid #454344
+      border-right: 1px solid map-get($app-palette, medium-gray)
 
     &:before
       content: ""
       display: inline-block
-      margin-bottom: 15px
+      margin-bottom: 10px
       background-repeat: no-repeat
       background-position: center center
       background-size: contain
 
     &:hover,
     &_state_active
-      color: #fff
+      color: map-get($app-palette, text-light)
 
     &:focus
       outline: none
@@ -86,7 +87,7 @@ $block: ".profile-navbar"
         right: 0
         display: block
         margin-top: -10px
-        border-right: 10px solid #ecedf1
+        border-right: 10px solid map-get($app-palette, bg-primary)
         border-top: 10px solid transparent
         border-bottom: 10px solid transparent
 
@@ -96,79 +97,49 @@ $block: ".profile-navbar"
           bottom: 0
           margin-top: 0
           margin-right: -10px
-          border-bottom: 10px solid #ecedf1
+          border-bottom: 10px solid map-get($app-palette, bg-primary)
           border-right: 10px solid transparent
           border-left: 10px solid transparent
+
+    &_role_users,
+    &_role_roles,
+    &_role_sites
+      &:before
+        font-family: icons
+        font-size: 40px
+        line-height: 1
+        font-weight: 300
+        color: map-get($app-palette, text-secondary)
+        transition: all .3s
+
+        @media screen and (max-width: 960px)
+          font-size: 25px
+
+      &:hover
+        &:before
+          color: #fff
+
+    &_role_users#{&}_state_active,
+    &_role_roles#{&}_state_active,
+    &_role_sites#{&}_state_active
+      &:before
+        color: #fff
+
 
     // $Navigation bar link MOD: role users
     &_role_users
       &:before
-        width: 41px
-        height: 41px
-        background-image: url('../icons/icon-user-medium-gray.png')
+        content: '\e904'
 
-        @media screen and (max-width: 960px)
-          width: 28px
-          height: 26px
-
-
-    // $Navigation bar link MOD: role users state active
-    &_role_users#{&}_state_active,
-    &_role_users:hover
+    // $Navigation bar link MOD: role roles
+    &_role_roles
       &:before
-        background-image: url('../icons/icon-user-white.png')
-
-    // $Navigation bar link MOD: role positions
-    &_role_positions
-      &:before
-        width: 41px
-        height: 41px
-        background-image: url('../icons/icon-case-medium-gray.png')
-
-        @media screen and (max-width: 960px)
-          width: 28px
-          height: 26px
-
-
-    // $Navigation bar link MOD: role positions state active
-    &_role_positions#{&}_state_active,
-    &_role_positions:hover
-      &:before
-        background-image: url('../icons/icon-case-white.png')
+        content: '\e91e'
 
     // $Navigation bar link MOD: role sites
     &_role_sites
       &:before
-        width: 41px
-        height: 41px
-        background-image: url('../icons/icon-globe-medium-gray.png')
-
-        @media screen and (max-width: 960px)
-          width: 26px
-          height: 26px
-
-    // $Navigation bar link MOD: role sites state active
-    &_role_sites#{&}_state_active,
-    &_role_sites:hover
-      &:before
-        background-image: url('../icons/icon-globe-white.png')
-
-    // $Navigation bar link MOD: role apps
-    &_role_apps
-      &:before
-        width: 41px
-        height: 41px
-        background-image: url('../icons/icon-screen-medium-gray.png')
-
-        @media screen and (max-width: 960px)
-          width: 28px
-          height: 26px
-
-    // $Navigation bar link MOD: role apps state active
-    &_role_apps#{&}_state_active,
-    &_role_apps:hover
-      &:before
-        background-image: url('../icons/icon-screen-white.png')
+        content: '\e908'
 
 
   // $Navigation bar link text
@@ -178,6 +149,3 @@ $block: ".profile-navbar"
     flex-shrink: 1
     display: block
     width: 100%
-
-    @media screen and (max-width: 960px)
-      display: none

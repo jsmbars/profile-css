@@ -141,8 +141,8 @@ $block: ".profile-form-field"
     & input
       display: block
       width: 100%
-      min-height: 40px
-      padding: 12px 15px
+      height: 40px
+      padding: 10px 15px
       font-family: $f-sans
       font-size: 14px
       color: map-get($app-palette, text-primary)
@@ -158,6 +158,10 @@ $block: ".profile-form-field"
       #{$block}_state_error &
         border-color: map-get($app-palette, accent-red)
         color: map-get($app-palette, accent-red)
+
+      #{$block}_size_narrow &
+        height: 30px
+        padding: 7px 15px
 
       &:invalid
         box-shadow: none
