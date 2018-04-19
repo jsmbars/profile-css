@@ -1,0 +1,178 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Card
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".profile-card"
+
+#{$block}
+  display: block
+  width: 100%
+  border: 1px solid map-get($app-palette, border-primary)
+
+  // $Card MOD: role board
+  &_role_board
+    background-color: #FFF
+    box-shadow: 0px 2px 8px 0 map-get($app-palette, shadow-secondary)
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+  &_hidden_desktop
+    @media screen and (min-width: 961px)
+      display: none
+
+  &_hidden_mobile
+    @media screen and (max-width: 960px)
+      display: none
+
+
+  // $Card header
+  // $Card footer
+  &__header,
+  &__footer
+    display: block
+    width: 100%
+    padding: 15px 20px
+    text-align: center
+    border-bottom: 1px solid map-get($app-palette, border-primary)
+
+    @media screen and (max-width: 960px)
+      padding: 15px 10px
+
+    // $Card header MOD: marked
+    // $Card footer MOD: marked
+    &_marked
+      background-color: map-get($app-palette, bg-secondary)
+
+  &__header
+    padding-top: 20px
+
+  &__footer
+    padding-bottom: 20px
+
+
+  // $Card group
+  &__group
+    display: block
+    width: 100%
+
+    // $Card row MOD: marked
+    &_marked
+      background-color: map-get($app-palette, bg-secondary)
+
+    &:not(:last-child)
+      border-bottom: 1px solid map-get($app-palette, border-primary)
+
+
+  // $Card row
+  &__row
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: stretch
+    width: 100%
+
+    // $Card row MOD: marked
+    &_marked
+      background-color: map-get($app-palette, bg-secondary)
+
+    &:not(:last-child)
+      border-bottom: 1px solid map-get($app-palette, border-primary)
+
+
+  // $Card cell
+  &__cell
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    padding: 15px 20px
+
+    @media screen and (max-width: 960px)
+      padding: 10px
+
+    // $Card cell MOD: size half
+    &_size_half
+      width: 50%
+
+    // $Card cell MOD: size half
+    &_size_third
+      width: 33.3%
+
+      @media screen and (max-width: 479px)
+        padding: 10px 5px
+
+    &_size_half,
+    &_size_third
+      &:not(:last-child)
+        border-right: 1px solid #eee
+
+
+  // $Card title
+  &__title
+    max-width: 100%
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1.2
+    color: #1c2841
+    font-weight: 600
+    white-space: nowrap
+
+    &:not(:last-child)
+      margin-bottom: 5px
+
+
+    &_role_user,
+    &_role_role,
+    &_role_site
+
+      &:before
+        content: ''
+        display: inline-block
+        margin-right: 10px
+        font-family: icons
+        font-size: 16px
+        line-height: 1
+        vertical-align: baseline
+        color: map-get($app-palette, text-primary)
+
+    &_role_user
+      &:before
+        content: '\e912'
+
+    &_role_role
+      &:before
+        content: '\e91e'
+
+    &_role_site
+      &:before
+        content: '\e908'
+
+
+  &__title-content
+    white-space: normal
+    overflow-wrap: break-word
+    word-wrap: break-word
+    word-break: break-word
+    hyphens: auto
+
+
+  // $Card text
+  &__text
+    max-width: 100%
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1.2
+    font-weight: 400
+    color: #1c2841

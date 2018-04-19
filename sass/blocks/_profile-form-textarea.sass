@@ -2,7 +2,7 @@
 @import '../helpers/mixins'
 
 ////////////////////////////////////////
-// $Common form field
+// $Common form textarea
 ////////////////////////////////////////
 
 //////////////////////////////////////// Block variables
@@ -12,42 +12,22 @@
 
 
 //////////////////////////////////////// Block styles
-$block: ".profile-form-field"
+$block: ".profile-form-textarea"
 
 #{$block}
   position: relative
   display: block
   width: 100%
 
-  // $Common form field MOD: role control
-  &_role_control
-    display: flex
-    flex-direction: row
-    justify-content: flex-start
-    align-items: center
-
-  // $Common form field MOD: role control reversed
-  &_role_control-reverse
-    display: flex
-    flex-direction: row-reverse
-    justify-content: flex-end
-    align-items: center
-
-  // $Common form field MOD: state error
+  // $Common form textarea MOD: state error
   &_state_error
 
-  // $Common form field MOD: no top label
+  // $Common form textarea MOD: no top label
   &_no-label
     padding-top: 20px
 
-  // $Common form field MOD: size small
-  &_size_s
 
-  // $Common form field MOD: size narrow
-  &_size_narrow
-
-
-  // $Common form field label
+  // $Common form textarea label
   &__label
     display: block
     width: 100%
@@ -58,110 +38,44 @@ $block: ".profile-form-field"
     font-weight: 400
     line-height: 1
 
-    // $Common form field label text CONTEXT: $Common form MOD: role control
-    #{$block}_role_control &,
-    #{$block}_role_control-reverse &
-      flex-grow: 0
-      flex-shrink: 0
-      width: auto
-      margin-bottom: 0
-      font-weight: 400
-      white-space: nowrap
-
-    #{$block}_role_control &
-      margin-right: 10px
-
-    #{$block}_role_control-reverse &
-      margin-left: 10px
-
-    // $Common form field label-text CONTEXT: $Common form field MOD: type required field
+    // $Common form textarea label-text CONTEXT: $Common form textarea MOD: type required field
     #{$block}_type_required &
       &:after
         content: '*'
         margin-left: 2px
 
-    @media screen and (max-width: 960px)
-      #{$block}_role_control &,
-      #{$block}_role_control-reverse &
-        width: 90px
 
-    // $Common form field label MOD: adjust control fluid
-    &_adjust_control-fluid
-      width: auto
-      @media screen and (max-width: 960px)
-        #{$block}_role_control &,
-        #{$block}_role_control-reverse &
-          width: auto
-
-    // $Common form field label MOD: adjust control wrap
-    &_adjust_control-wrap
-      #{$block}_role_control &,
-      #{$block}_role_control-reverse &
-        white-space: normal
-
-    // $Common form field label MOD: size small
-    &_size_small
-      font-size: 12px
-
-    // $Common form field label MOD: no wrap
-    &_nowrap
-      white-space: nowrap
-
-
-  // $Common form field label text
+  // $Common form textarea label text
   &__label-text
 
 
-  // $Common form field input
+  // $Common form textarea input
   &__input
     position: relative
 
-    &:before
-      #{$block}_role_search &
-        content: "\e90e"
-        position: absolute
-        top: 50%
-        left: 15px
-        display: block
-        font-family: icons
-        font-size: 18px
-        line-height: 1
-        color: map-get($app-palette, text-secondary)
-        transform: translateY(-50%)
-
-      #{$block}_role_search#{$block}_state_error &
-        color: map-get($app-palette, accent-red)
-
-    // $Common form field input CONTEXT: $Common form MOD: role control
-    #{$block}_role_control &,
-    #{$block}_role_control-reverse &
-      flex-grow: 1
-      flex-shrink: 1
-
-    & input
+    & textarea
+      resize: vertical
       display: block
       width: 100%
-      height: 40px
-      padding: 10px 15px
+      height: 145px
       font-family: $f-sans
       font-size: 14px
       color: map-get($app-palette, text-primary)
       font-weight: 400
       line-height: 1.5
-      background-color: map-get($app-palette, bg-light)
       border: 1px solid map-get($app-palette, border-primary)
       border-radius: 0
-
-      #{$block}_role_search &
-        padding-left: 40px
+      padding: 12px 15px
+      box-shadow: none
+      background-color: map-get($app-palette, light-primary)
 
       #{$block}_state_error &
         border-color: map-get($app-palette, accent-red)
         color: map-get($app-palette, accent-red)
 
       #{$block}_size_narrow &
-        height: 30px
-        padding: 4px 15px
+        height: 125px
+        padding: 7px 15px
 
       &:invalid
         box-shadow: none
@@ -174,7 +88,7 @@ $block: ".profile-form-field"
         background-color: map-get($app-palette, bg-secondary)
         cursor: not-allowed
 
-      &:not([type="date"]):read-only
+      &:read-only
         background-color: map-get($app-palette, bg-secondary)
 
       &::-webkit-input-placeholder
@@ -227,7 +141,7 @@ $block: ".profile-form-field"
           color: map-get($app-palette, accent-red) !important
 
 
-  // $Common form field note
+  // $Common form textarea note
   &__note
     margin-top: 10px
     font-family: $f-sans

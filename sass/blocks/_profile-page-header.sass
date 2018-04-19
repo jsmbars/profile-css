@@ -18,66 +18,140 @@ $block: ".profile-page-header"
   display: flex
   flex-direction: row
   justify-content: space-between
-  align-items: stretch
+  align-items: center
   width: 100%
-  background-color: #fff
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,.2)
+  height: 80px
+  padding: 0 20px
+  background-color: map-get($app-palette, bg-light)
+  border-bottom: 1px solid map-get($app-palette, border-primary)
+  box-shadow: 0 2px 8px 0 map-get($app-palette, shadow-secondary)
+
+  @media screen and (max-width: 960px)
+    height: 50px
+    padding: 0 10px
 
 
-  // $Page header group
-  &__group
-    flex-grow: 1
-    flex-shrink: 1
-    display: flex
-    flex-direction: row
-    justify-content: space-between
-    align-items: center
-    width: calc(100% - 150px)
-    padding: 20px 25px
-
-    @media screen and (max-width: 960px)
-      padding: 10px
+  // $Page header logo
+  &__logo
+    flex-grow: 0
+    flex-shrink: 0
+    display: inline-block
 
 
-  // $Page header title
-  &__title
-    flex-grow: 1
-    padding-right: 20px
+  // $Page header logo text
+  &__logo-text
+    display: inline-block
     font-family: $f-sans
     font-size: 18px
     line-height: 1
-    font-weight: 700
-    text-transform: uppercase
-    text-align: center
-    color: #333
+    font-weight: 800
+    color: map-get($app-palette, text-primary)
+    text-decoration: none
+    transition: all .3s
 
-    @media screen and (max-width: 960px)
-      text-align: left
+    &:hover
+      text-decoration: none
+      color: map-get($app-palette, text-secondary)
 
 
-  // $Page header user
-  &__user
+  // $Page header profile
+  &__profile
     flex-grow: 0
-    flex-shrink: 0
+    flex-shrink: 1
     display: flex
     flex-direction: row
-    justify-content: center
+    justify-content: flex-end
     align-items: center
-    width: 150px
-    padding: 10px
-    background-color: #2d91ba
+    padding-left: 60px
 
-    @media screen and (max-width: 960px)
+    // $Page header profile MOD: hidden on desktop
+    &_hidden_desktop
+      @media screen and (min-width: 961px)
+        display: none
+
+    // $Page header profile MOD: hidden on mobile
+    &_hidden_mobile
+      @media screen and (max-width: 960px)
+        display: none
+
+
+  // $Page header dropdown
+  &__dropdown
+    position: relative
+
+
+  // $Page header dropdown switch
+  &__dropdown-switch
+    position: relative
+    display: block
+    width: 30px
+    height: 30px
+    background-color: map-get($app-palette, bg-secondary)
+    border: 1px solid map-get($app-palette, dark-gray)
+    border-radius: 50%
+    cursor: pointer
+
+    &:before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      font-family: icons
+      font-size: 16px
+      line-height: 1
+      color: map-get($app-palette, text-primary)
+      transform: translate(-50%,-50%)
+
+    // $Page header dropdown switch MOD: state closed
+    &_state_closed
+      background-color: map-get($app-palette, bg-light)
+
+      &:hover
+        background-color: map-get($app-palette, bg-secondary)
+
+    // $Page header dropdown switch MOD ;role profile
+    &_role_profile
+      &:before
+        content: '\e912'
+
+
+  // $Page header dropdown content
+  &__dropdown-content
+    position: absolute
+    top: calc(100% + 10px)
+    right: 0
+    z-index: 1000
+    display: block
+    width: 300px
+    padding: 15px
+    border-radius: 4px
+    border: 1px solid map-get($app-palette, border-primary)
+    background-color: map-get($app-palette, bg-light)
+    box-shadow: 2px 2px 8px 0 map-get($app-palette, shadow-secondary)
+
+    &:after
+      content: ""
+      position: absolute
+      bottom: 100%
+      right: 15px
+      z-index: 10001
+      margin-right: -12px
+      border-bottom: 12px solid map-get($app-palette, border-primary)
+      border-right: 12px solid transparent
+      border-left: 12px solid transparent
+
+    &:before
+      content: ""
+      position: absolute
+      bottom: 100%
+      right: 15px
+      z-index: 10002
+      margin-right: -10px
+      border-bottom: 10px solid map-get($app-palette, bg-light)
+      border-right: 10px solid transparent
+      border-left: 10px solid transparent
+
+    // $Page header dropdown content MOD: state closed
+    &_state_closed
       display: none
-
-
-  // $Page header user text
-  &__user-text
-    font-family: $f-sans
-    font-weight: 800
-    font-size: 16px
-    line-height: 1.2
-    color: #fff
-    text-transform: uppercase
-    text-align: center
-

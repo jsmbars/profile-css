@@ -33,13 +33,18 @@ $block: ".profile-form-select"
     justify-content: flex-end
     align-items: center
 
+  // $Common form select MOD: role search
+  &_role_search
+
   // $Common form select MOD: no top label
   &_no-label
     padding-top: 20px
 
-  &_state_error
-    @media screen and (max-width: 960px)
-      margin-bottom: 25px
+  // $Common form select MOD: size small
+  &_size_s
+
+  // $Common form select MOD: size narrow
+  &_size_narrow
 
 
   // $Common form select label
@@ -49,8 +54,8 @@ $block: ".profile-form-select"
     margin-bottom: 10px
     font-family: $f-sans
     font-size: 14px
-    color: #464646
-    font-weight: 800
+    color: map-get($app-palette, text-primary)
+    font-weight: 400
     line-height: 1
 
     // $Common form select label text CONTEXT: $Common form select MOD: role control
@@ -60,7 +65,7 @@ $block: ".profile-form-select"
       flex-shrink: 0
       width: auto
       margin-bottom: 0
-      font-weight: 800
+      font-weight: 400
       white-space: nowrap
 
     #{$block}_role_control &
@@ -79,6 +84,28 @@ $block: ".profile-form-select"
       #{$block}_role_control &,
       #{$block}_role_control-reverse &
         width: 90px
+        white-space: normal
+
+    // $Common form select label MOD: adjust control fluid
+    &_adjust_control-fluid
+      @media screen and (max-width: 960px)
+        #{$block}_role_control &,
+        #{$block}_role_control-reverse &
+          width: auto
+
+    // $Common form select label MOD: adjust control wrap
+    &_adjust_control-wrap
+      #{$block}_role_control &,
+      #{$block}_role_control-reverse &
+        white-space: normal
+
+    // $Common form select label MOD: size small
+    &_size_small
+      font-size: 12px
+
+    // $Common form select label MOD: no wrap
+    &_nowrap
+      white-space: nowrap
 
 
   // $Common form select label text
@@ -96,60 +123,66 @@ $block: ".profile-form-select"
       flex-shrink: 1
 
     &:after
-      content: ''
+      content: '\e919'
       position: absolute
       top: 50%
-      right: 13px
+      right: 15px
       z-index: 10
       display: block
-      width: 14px
-      height: 14px
-      background: url(../icons/icon-arrow-down-light-gray.svg) no-repeat 0 0
+      font-family: icons
+      font-size: 20px
+      color: map-get($app-palette, text-primary)
+      line-height: 1
       transform: translateY(-50%)
+
+      #{$block}_state_error &
+        color: map-get($app-palette, accent-red)
 
     & select
       display: block
       width: 100%
-      min-height: 40px
-      padding: 11px 40px 11px 10px
+      height: 40px
+      padding: 10px 45px 10px 15px
       font-family: $f-sans
       font-size: 14px
-      color: #333
-      font-weight: 700
+      color: map-get($app-palette, text-primary)
+      font-weight: 400
       line-height: 1.5
       outline: none
-      border: 1px solid #e1e1e1
-      border-radius: 5px
+      border: 1px solid map-get($app-palette, border-primary)
+      border-radius: 0
       background: none
+      background-color: map-get($app-palette, light-primary)
       appearance: none
       -moz-appearance: none
       -webkit-appearance: none
-      background-color: #FCFCFC
       transition: all .3s
 
-      #{$block}_state_success &
-        border: 2px solid #4ec351
-        color: #4ec351
-
       #{$block}_state_error &
-        border: 2px solid #e14f4f
-        border-bottom-right-radius: 0
-        color: #e14f4f
+        border-color: map-get($app-palette, accent-red)
+        color: map-get($app-palette, accent-red)
+
+      #{$block}_size_narrow &
+        height: 30px
+        padding: 4px 45px 4px 15px
+
+      &:invalid
+        box-shadow: none
+
+      &:focus
+        outline: none
+        box-shadow: 0 0 3px -1px map-get($app-palette, accent-blue)
 
       &::-ms-expand
         display: none
 
       &:focus::-ms-value
         background-color: transparent
-        color: #333
+        color: map-get($app-palette, text-primary)
 
-      &:invalid
-        color: #acacac
-        outline: none
-        box-shadow: none
-
-        #{$block}_state_error &
-          color: #e14f4f
+      &:disabled
+        background-color: map-get($app-palette, bg-secondary)
+        cursor: not-allowed
 
     // $Common form select option
     & option
@@ -158,11 +191,14 @@ $block: ".profile-form-select"
       max-width: 100%
       font-family: $f-sans
       font-size: 14px
-      color: #333
+      color: map-get($app-palette, text-primary)
       font-weight: 400
       line-height: 1.5
       outline: none
       border: none
+
+      &:disabled
+        color: map-get($app-palette, text-secondary)
 
 
   // $Common form select note
@@ -171,24 +207,4 @@ $block: ".profile-form-select"
     font-family: $f-sans
     font-size: 14px
     line-height: 1
-    color: #333
-
-
-  // $Common form select error
-  &__error
-    position: absolute
-    top: 100%
-    right: 0
-    z-index: 10
-    display: none
-    padding: 4px 8px 8px 10px
-    font-family: $f-sans
-    font-size: 14px
-    font-weight: 700
-    line-height: 1
-    letter-spacing: 1px
-    color: #fff
-    background-color: #e14f4f
-
-    #{$block}_state_error &
-      display: block
+    color: map-get($app-palette, text-primary)

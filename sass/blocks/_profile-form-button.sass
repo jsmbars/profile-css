@@ -1,0 +1,133 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Common form button
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+=button-hover($color: map-get($app-palette, text-light), $border-color:map-get($app-palette, dark-gray), $bg-color: map-get($app-palette, dark-gray))
+
+  &:hover
+    color: $color
+    border-color: $border-color
+    background-color: $bg-color
+
+
+=button-active($color:map-get($app-palette, text-light), $border-color: map-get($app-palette, dark-gray), $bg-color: map-get($app-palette, dark-gray))
+
+  &#{$block}_state_active
+    color: $color
+    border-color: $border-color
+    background-color: $bg-color
+
+
+=button-with-icon-left($icon: '', $icon-color: map-get($app-palette, text-primary), $icon-hover-color: map-get($app-palette, text-light), $icon-active-color: map-get($app-palette, text-light), $size: 18px)
+
+  &:before
+    content: '#{$icon}'
+    display: inline-block
+    margin-right: 8px
+    font-family: icons
+    font-size: $size
+    line-height: 14px
+    color: $icon-color
+    font-weight: normal
+    vertical-align: middle
+
+  @if $icon-hover-color != null
+    &:hover
+      &:before
+        color: $icon-hover-color
+
+  @if $icon-active-color != null
+    &#{$block}_state_active
+      &:before
+        color: $icon-active-color
+
+
+=button-with-icon-right($icon: '', $icon-color: map-get($app-palette, text-primary), $icon-hover-color: map-get($app-palette, text-light), $icon-active-color: map-get($app-palette, text-light), $size: 18px)
+
+  &:after
+    content: '#{$icon}'
+    display: inline-block
+    margin-left: 8px
+    font-family: icons
+    font-size: $size
+    line-height: 14px
+    color: $icon-color
+    font-weight: normal
+    vertical-align: middle
+
+  @if $icon-hover-color != null
+    &:hover
+      &:after
+        color: $icon-hover-color
+
+  @if $icon-active-color != null
+    &#{$block}_state_active
+      &:after
+        color: $icon-active-color
+
+
+//////////////////////////////////////// Block styles
+$block: ".profile-form-button"
+
+#{$block}
+  +button-hover()
+
+  display: inline-block
+  height: 40px
+  padding: 10px 15px
+  font-family: $f-sans
+  font-size: 14px
+  color: map-get($app-palette, text-primary)
+  font-weight: 400
+  line-height: 1
+  background-color: map-get($app-palette, bg-light)
+  border: 1px solid map-get($app-palette, border-primary)
+  border-radius: 0
+  text-decoration: none
+  white-space: nowrap
+  vertical-align: middle
+  text-align: center
+  outline: none
+  cursor: pointer
+  transition: all .3s
+
+  // $Common form button MOD: type icon
+  &_type_icon
+    &:before
+      margin-right: 0 !important
+
+    &:after
+      margin-left: 0 !important
+
+  // $Common form button MOD: size narrow
+  &_size_narrow
+    height: 30px
+    padding: 7px 15px
+
+
+  // $Common form button text
+  &__text
+    vertical-align: middle
+
+    #{$block}_type_icon &
+      display: none
+
+
+  // $Common form button variations:
+
+  // Color modifiers
+  &_color_accent-blue
+    +button-hover($border-color: map-get($app-palette, accent-blue), $bg-color: map-get($app-palette, accent-blue))
+
+  // Icon modifiers
+  // $Common form button MOD: icon check
+  &_icon_check
+    +button-with-icon-left($icon: '\e90d')
