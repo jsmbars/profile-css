@@ -75,13 +75,19 @@ $block: ".profile-table"
       vertical-align: middle
       border-bottom: 1px solid map-get($app-palette, border-primary)
 
+
+    @media screen and (max-width: 1280px)
+      #{$block}_page_users &
+        padding-left: 10px
+        padding-right: 10px
+
     &:not(:last-child)
       border-right: 1px solid map-get($app-palette, border-primary)
 
     // $Common table cell first column
     &:nth-child(1)
       #{$block}_page_users &
-        width: calc(100% - 260px)
+        width: 25%
 
       #{$block}_page_roles &
         width: calc(100% - 260px)
@@ -92,9 +98,7 @@ $block: ".profile-table"
     // $Common table cell second column
     &:nth-child(2)
       #{$block}_page_users &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 130px
+        width: 15%
 
       #{$block}_page_roles &
         flex-grow: 0
@@ -108,9 +112,7 @@ $block: ".profile-table"
     // $Common table cell third column
     &:nth-child(3)
       #{$block}_page_users &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 130px
+        width: 15%
 
       #{$block}_page_sites &
         width: 15%
@@ -118,10 +120,27 @@ $block: ".profile-table"
 
     // $Common table cell fourth column
     &:nth-child(4)
+      #{$block}_page_users &
+        width: 15%
+
       #{$block}_page_sites &
         flex-grow: 0
         flex-shrink: 0
         width: 150px
+
+    // $Common table cell fifth column
+    &:nth-child(5)
+      #{$block}_page_users &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 90px
+
+    // $Common table cell sixth column
+    &:nth-child(6)
+      #{$block}_page_users &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 100px
 
     // $Common table cell MOD: role header
     // $Common table cell MOD: role footer
@@ -136,7 +155,6 @@ $block: ".profile-table"
 
     &_role_header
       &:nth-child(2)
-        #{$block}_page_users &,
         #{$block}_page_sites &
           justify-content: center
           text-align: center
@@ -146,12 +164,17 @@ $block: ".profile-table"
           justify-content: center
           text-align: center
 
+      &:nth-child(5)
+        #{$block}_page_users &
+          justify-content: center
+          text-align: center
+
 
   // $Common table info
   &__info
     width: 100%
 
-    #{$block}_page_users #{$block}__cell:nth-child(2) &,
+    #{$block}_page_users #{$block}__cell:nth-child(5) &,
     #{$block}_page_sites #{$block}__cell:nth-child(2) &,
     #{$block}_page_sites #{$block}__cell:nth-child(3) &
       text-align: center
@@ -164,6 +187,13 @@ $block: ".profile-table"
     font-weight: 400
     color: map-get($app-palette, text-primary)
 
+    &_adjust_wrap
+      overflow-wrap: break-word
+      word-wrap: break-word
+      word-break: break-word
+      hyphens: auto
+
+
 
   // $Common table actions
   &__actions
@@ -172,7 +202,7 @@ $block: ".profile-table"
     justify-content: flex-start
     align-items: center
 
-    #{$block}_page_users #{$block}__cell:nth-child(3) &
+    #{$block}_page_users #{$block}__cell:nth-child(6) &
       justify-content: center
 
     #{$block}_page_roles #{$block}__cell:nth-child(2) &

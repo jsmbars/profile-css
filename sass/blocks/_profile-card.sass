@@ -119,6 +119,33 @@ $block: ".profile-card"
         border-right: 1px solid #eee
 
 
+  // $Card labels
+  &__labels
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+
+    @media screen and (max-width: 640px)
+      width: 100%
+
+    & + &
+      margin-top: 10px
+
+
+  // $Card labels key
+  &__labels-key
+    flex-grow: 0
+    flex-shrink: 0
+
+
+  // $Card labels content
+  &__labels-content
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+
   // $Card title
   &__title
     max-width: 100%
@@ -176,3 +203,6 @@ $block: ".profile-card"
     line-height: 1.2
     font-weight: 400
     color: #1c2841
+
+    &_faded
+      color: map-get($app-palette, text-secondary)
