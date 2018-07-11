@@ -87,7 +87,7 @@ $block: ".profile-table"
     // $Common table cell first column
     &:nth-child(1)
       #{$block}_page_users &
-        width: 25%
+        width: 22%
 
       #{$block}_page_roles &
         width: calc(100% - 260px)
@@ -98,7 +98,7 @@ $block: ".profile-table"
     // $Common table cell second column
     &:nth-child(2)
       #{$block}_page_users &
-        width: 15%
+        width: 16%
 
       #{$block}_page_roles &
         flex-grow: 0
@@ -112,7 +112,7 @@ $block: ".profile-table"
     // $Common table cell third column
     &:nth-child(3)
       #{$block}_page_users &
-        width: 15%
+        width: 16%
 
       #{$block}_page_sites &
         width: 15%
@@ -121,12 +121,12 @@ $block: ".profile-table"
     // $Common table cell fourth column
     &:nth-child(4)
       #{$block}_page_users &
-        width: 15%
+        width: 16%
 
       #{$block}_page_sites &
         flex-grow: 0
         flex-shrink: 0
-        width: 150px
+        width: 140px
 
     // $Common table cell fifth column
     &:nth-child(5)
@@ -140,7 +140,11 @@ $block: ".profile-table"
       #{$block}_page_users &
         flex-grow: 0
         flex-shrink: 0
-        width: 100px
+        width: 210px
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_users &
+          width: 120px
 
     // $Common table cell MOD: role header
     // $Common table cell MOD: role footer
@@ -208,9 +212,26 @@ $block: ".profile-table"
     #{$block}_page_roles #{$block}__cell:nth-child(2) &
       justify-content: flex-end
 
+    #{$block}_page_sites #{$block}__cell:nth-child(4) &
+      flex-direction: column
+      align-items: stretch
+
+    @media screen and (max-width: 1280px)
+      #{$block}_page_users #{$block}__cell:nth-child(6) &
+        flex-direction: column
+        align-items: stretch
+
 
   // $Common table action
   &__action
+    #{$block}_page_sites #{$block}__cell:nth-child(4) &
+      text-align: left
+
     &:not(:last-child)
       margin-right: 15px
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_users #{$block}__cell:nth-child(6) &
+          margin-right: 0
+          margin-bottom: 10px
 
