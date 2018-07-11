@@ -15,10 +15,11 @@
   color: $color
 
 
-=button-common-hover($background-color, $amount: 5%)
+=button-common-hover($background-color, $amount: 5%, $color: #fff)
 
-  &:not(.stock-button_type_no-behavior):hover
+  &:not(.profile-button_type_no-behavior):hover
     background-color: lighten($background-color, $amount)
+    color: $color
 
 
 =button-bordered($color: map-get($app-palette, dark-gray), $border-color: map-get($app-palette, dark-gray), $border-width: 2px, $border-radius: 4px, $bg-color: map-get($app-palette, bg-light))
@@ -30,7 +31,7 @@
 
 =button-bordered-hover($color:#fff, $border-color:map-get($app-palette, dark-gray), $bg-color: map-get($app-palette, dark-gray))
 
-  &:not(.stock-button_type_no-behavior):hover
+  &:not(.profile-button_type_no-behavior):hover
     color: $color
     border-color: $border-color
     background-color: $bg-color
@@ -97,9 +98,9 @@ $block: ".profile-button"
 
 #{$block}
   $background-color: map-get($app-palette, dark-gray)
-
-  +button-common($background-color: $background-color)
-  +button-common-hover($background-color: $background-color)
+  $color: #fff
+  +button-common($background-color: $background-color, $color: $color)
+  +button-common-hover($background-color: $background-color, $color: $color)
 
   display: inline-block
   padding: 12px 20px
@@ -116,9 +117,6 @@ $block: ".profile-button"
   cursor: pointer
   border: none
   transition: all .3s
-
-  &:hover
-    color: #FFF
 
   &:focus
     outline: none

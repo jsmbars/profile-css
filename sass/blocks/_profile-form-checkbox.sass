@@ -75,6 +75,9 @@ $block: ".profile-form-checkbox"
     #{$block}__input:disabled ~ &
       cursor: not-allowed
 
+    &:empty
+      padding-left: 25px
+
     &:before
       content: ""
       position: absolute
