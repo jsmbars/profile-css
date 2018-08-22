@@ -31,6 +31,9 @@ $block: ".profile-table"
     @media screen and (max-width: 960px)
       display: none
 
+  &_page_users-details-form
+    border: none
+
 
   // $Common table row
   &__row
@@ -44,15 +47,32 @@ $block: ".profile-table"
     #{$block}_type_common &
       display: table-row
 
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-details-form &
+        flex-wrap: wrap
+
     &:last-of-type
       border-bottom: none
 
     &:nth-child(odd)
       background-color: map-get($app-palette, bg-secondary)
 
+      #{$block}_page_users-details-form &
+        background-color: transparent
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-details-form &
+          background-color: map-get($app-palette, bg-secondary)
+
     // $Common table row MOD: role header
     &_role_header
       background-color: map-get($app-palette, bg-secondary)
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-details-form &
+          display: none
+
+
 
 
   // $Common table cell
@@ -75,14 +95,26 @@ $block: ".profile-table"
       vertical-align: middle
       border-bottom: 1px solid map-get($app-palette, border-primary)
 
+    #{$block}_page_users-details-form &
+      padding-top: 0
+      padding-bottom: 0
+      border-bottom: none
 
     @media screen and (max-width: 1280px)
       #{$block}_page_users &
         padding-left: 10px
         padding-right: 10px
 
+    @media screen and (max-width: 640px)
+      #{$block}_page_users-details-form &
+        padding-top: 10px
+        padding-bottom: 10px
+
     &:not(:last-child)
       border-right: 1px solid map-get($app-palette, border-primary)
+
+      #{$block}_page_users-details-form &
+        border: none
 
     // $Common table cell first column
     &:nth-child(1)
@@ -94,6 +126,24 @@ $block: ".profile-table"
 
       #{$block}_page_sites &
         width: calc(70% - 150px)
+
+      #{$block}_page_users-details-form &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 300px
+        padding-left: 0
+
+      @media screen and (max-width: 800px)
+        #{$block}_page_users-details-form &
+          flex-grow: 1
+          flex-shrink: 1
+          width: auto
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-details-form &
+          width: 100%
+          padding-left: 15px
+          padding-right: 15px
 
     // $Common table cell second column
     &:nth-child(2)
@@ -109,6 +159,23 @@ $block: ".profile-table"
         width: 15%
         max-width: 150px
 
+      #{$block}_page_users-details-form &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 175px
+        padding-left: 0
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-details-form &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 50%
+          padding-left: 15px
+
+      @media screen and (max-width: 400px)
+        #{$block}_page_users-details-form &
+          width: 100%
+
     // $Common table cell third column
     &:nth-child(3)
       #{$block}_page_users &
@@ -117,6 +184,23 @@ $block: ".profile-table"
       #{$block}_page_sites &
         width: 15%
         max-width: 150px
+
+      #{$block}_page_users-details-form &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 175px
+        padding-right: 0
+
+      @media screen and (max-width: 640px)
+        #{$block}_page_users-details-form &
+          flex-grow: 1
+          flex-shrink: 1
+          width: 50%
+          padding-right: 15px
+
+      @media screen and (max-width: 400px)
+        #{$block}_page_users-details-form &
+          width: 100%
 
     // $Common table cell fourth column
     &:nth-child(4)
@@ -157,14 +241,21 @@ $block: ".profile-table"
       color: map-get($app-palette, text-primary)
       text-transform: uppercase
 
+      #{$block}_page_users-details-form &
+        height: auto
+        min-height: 0
+        padding-top: 0
+
     &_role_header
       &:nth-child(2)
-        #{$block}_page_sites &
+        #{$block}_page_sites &,
+        #{$block}_page_users-details-form &
           justify-content: center
           text-align: center
 
       &:nth-child(3)
-        #{$block}_page_sites &
+        #{$block}_page_sites &,
+        #{$block}_page_users-details-form &
           justify-content: center
           text-align: center
 
