@@ -24,6 +24,8 @@ $block: ".profile-form-checkbox"
   // $Common form checkbox MOD: role control reversed
   &_role_control-reverse
 
+  &_type_secondary
+
 
   // $Common form checkbox label
   &__label
@@ -75,17 +77,27 @@ $block: ".profile-form-checkbox"
     #{$block}__input:disabled ~ &
       cursor: not-allowed
 
+    #{$block}_type_secondary &
+      min-height: 16px
+      padding-left: 24px
+      font-size: 12px
+      line-height: 16px
+
     &:empty
       padding-left: 25px
 
+      #{$block}_type_secondary &
+        padding-left: 16px
+
     &:before
       content: ""
+      box-sizing: border-box
       position: absolute
       top: 50%
       left: 0
       display: block
-      width: 25px
-      height: 25px
+      width: 24px
+      height: 24px
       margin-top: -12px
       background-color: map-get($app-palette, bg-light)
       border: 1px solid map-get($app-palette, border-primary)
@@ -101,19 +113,24 @@ $block: ".profile-form-checkbox"
         background-color: map-get($app-palette, bg-secondary)
         border-color: map-get($app-palette, border-primary)
 
+      #{$block}_type_secondary &
+        width: 16px
+        height: 16px
+        margin-top: -8px
+
     &:after
       content: "\e914"
       box-sizing: border-box
       position: absolute
-      top: calc(50% + 1px)
-      left: 1px
+      top: 50%
+      left: 0
       display: block
-      width: 25px
-      height: 25px
+      width: 24px
+      height: 24px
       margin-top: -12px
       font-family: icons
       font-size: 16px
-      line-height: 25px
+      line-height: 24px
       color: map-get($app-palette, text-light)
       text-align: center
       visibility: hidden
@@ -124,14 +141,21 @@ $block: ".profile-form-checkbox"
       #{$block}__input:checked:disabled ~ &
         color: map-get($app-palette, text-primary)
 
-    // $Common form checkbox input label text MOD: no-label text
-    &_type_no-label
-      padding-left: 25px
+      #{$block}_type_secondary &
+        width: 16px
+        height: 16px
+        margin-top: -8px
+        font-size: 12px
+        line-height: 16px
 
     // $Common form checkbox input label text MOD: type reversed label text
     &_type_reversed
       padding-left: 0
-      padding-right: 30px
+      padding-right: 40px
+
+      #{$block}_type_secondary &
+        padding-left: 0
+        padding-right: 24px
 
       &:before
         left: auto
@@ -139,13 +163,15 @@ $block: ".profile-form-checkbox"
 
       &:after
         left: auto
-        right: 5px
+        right: 1px
 
-    // $Common form checkbox input label text MOD: type reversed label text MOD: no-label text
-    &_type_reversed#{&}_type_no-label
-      padding-left: 0
-      padding-right: 20px
+      &:empty
+        padding-left: 0
+        padding-right: 25px
 
+        #{$block}_type_secondary &
+          padding-left: 0
+          padding-right: 16px
     // $Common form checkbox input label text MOD: small text
     &_size_small
       font-size: 12px
@@ -154,9 +180,18 @@ $block: ".profile-form-checkbox"
     &_adjust_field
       min-height: 45px
 
+      #{$block}_type_secondary &
+        min-height: 45px
+
     // $Common form checkbox input label text MOD: adjust fluid field
     &_adjust_field-fluid
       min-height: 45px
 
+      #{$block}_type_secondary &
+        min-height: 45px
+
       @media screen and (max-width: 960px)
-        min-height: 20px
+        min-height: 25px
+
+        #{$block}_type_secondary &
+          min-height: 25px

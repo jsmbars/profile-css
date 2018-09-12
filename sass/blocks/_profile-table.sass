@@ -47,7 +47,7 @@ $block: ".profile-table"
     #{$block}_type_common &
       display: table-row
 
-    @media screen and (max-width: 640px)
+    @media screen and (max-width: 1280px)
       #{$block}_page_users-details-form &
         flex-wrap: wrap
 
@@ -60,7 +60,7 @@ $block: ".profile-table"
       #{$block}_page_users-details-form &
         background-color: transparent
 
-      @media screen and (max-width: 640px)
+      @media screen and (max-width: 1280px)
         #{$block}_page_users-details-form &
           background-color: map-get($app-palette, bg-secondary)
 
@@ -68,11 +68,9 @@ $block: ".profile-table"
     &_role_header
       background-color: map-get($app-palette, bg-secondary)
 
-      @media screen and (max-width: 640px)
+      @media screen and (max-width: 1280px)
         #{$block}_page_users-details-form &
           display: none
-
-
 
 
   // $Common table cell
@@ -98,6 +96,8 @@ $block: ".profile-table"
     #{$block}_page_users-details-form &
       padding-top: 0
       padding-bottom: 0
+      padding-left: 10px
+      padding-right: 10px
       border-bottom: none
 
     @media screen and (max-width: 1280px)
@@ -105,7 +105,6 @@ $block: ".profile-table"
         padding-left: 10px
         padding-right: 10px
 
-    @media screen and (max-width: 640px)
       #{$block}_page_users-details-form &
         padding-top: 10px
         padding-bottom: 10px
@@ -130,20 +129,14 @@ $block: ".profile-table"
       #{$block}_page_users-details-form &
         flex-grow: 0
         flex-shrink: 0
-        width: 300px
+        width: 250px
         padding-left: 0
 
-      @media screen and (max-width: 800px)
-        #{$block}_page_users-details-form &
-          flex-grow: 1
-          flex-shrink: 1
-          width: auto
-
-      @media screen and (max-width: 640px)
+      @media screen and (max-width: 1280px)
         #{$block}_page_users-details-form &
           width: 100%
-          padding-left: 15px
-          padding-right: 15px
+          padding-left: 10px
+          padding-right: 10px
 
     // $Common table cell second column
     &:nth-child(2)
@@ -162,17 +155,19 @@ $block: ".profile-table"
       #{$block}_page_users-details-form &
         flex-grow: 0
         flex-shrink: 0
-        width: 175px
-        padding-left: 0
+        width: 200px
 
-      @media screen and (max-width: 640px)
+      @media screen and (max-width: 1280px)
         #{$block}_page_users-details-form &
           flex-grow: 1
           flex-shrink: 1
-          width: 50%
-          padding-left: 15px
+          width: 25%
 
-      @media screen and (max-width: 400px)
+      @media screen and (max-width: 1120px)
+        #{$block}_page_users-details-form &
+          width: 50%
+
+      @media screen and (max-width: 480px)
         #{$block}_page_users-details-form &
           width: 100%
 
@@ -188,17 +183,19 @@ $block: ".profile-table"
       #{$block}_page_users-details-form &
         flex-grow: 0
         flex-shrink: 0
-        width: 175px
-        padding-right: 0
+        width: 200px
 
-      @media screen and (max-width: 640px)
+      @media screen and (max-width: 1280px)
         #{$block}_page_users-details-form &
           flex-grow: 1
           flex-shrink: 1
-          width: 50%
-          padding-right: 15px
+          width: 25%
 
-      @media screen and (max-width: 400px)
+      @media screen and (max-width: 1120px)
+        #{$block}_page_users-details-form &
+          width: 50%
+
+      @media screen and (max-width: 480px)
         #{$block}_page_users-details-form &
           width: 100%
 
@@ -212,12 +209,39 @@ $block: ".profile-table"
         flex-shrink: 0
         width: 140px
 
+      #{$block}_page_users-details-form &
+        max-width: 300px
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_users-details-form &
+          flex-grow: 0
+          flex-shrink: 0
+          width: 160px
+
+      @media screen and (max-width: 400px)
+        #{$block}_page_users-details-form &
+          width: 50%
+
     // $Common table cell fifth column
     &:nth-child(5)
       #{$block}_page_users &
         flex-grow: 0
         flex-shrink: 0
         width: 90px
+
+      #{$block}_page_users-details-form &
+        max-width: 300px
+        padding-right: 0
+
+      @media screen and (max-width: 1280px)
+        #{$block}_page_users-details-form &
+          flex-grow: 0
+          flex-shrink: 0
+          width: 160px
+
+      @media screen and (max-width: 400px)
+        #{$block}_page_users-details-form &
+          width: 50%
 
     // $Common table cell sixth column
     &:nth-child(6)
@@ -282,12 +306,23 @@ $block: ".profile-table"
     font-weight: 400
     color: map-get($app-palette, text-primary)
 
+    #{$block}__cell_role_header &,
+    #{$block}__cell_role_footer &
+      font-weight: 600
+
     &_adjust_wrap
       overflow-wrap: break-word
       word-wrap: break-word
       word-break: break-word
       hyphens: auto
 
+
+  &__text-middle
+    display: inline-block
+    vertical-align: middle
+
+    &:not(:last-child)
+      margin-right: 5px
 
 
   // $Common table actions
