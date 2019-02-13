@@ -101,7 +101,8 @@ $block: ".profile-table"
       border-bottom: none
 
     @media screen and (max-width: 1280px)
-      #{$block}_page_users &
+      #{$block}_page_users &,
+      #{$block}_page_sites &
         padding-left: 10px
         padding-right: 10px
 
@@ -124,7 +125,7 @@ $block: ".profile-table"
         width: calc(100% - 260px)
 
       #{$block}_page_sites &
-        width: calc(70% - 150px)
+        width: calc(40% - 120px)
 
       #{$block}_page_users-details-form &
         flex-grow: 0
@@ -149,8 +150,8 @@ $block: ".profile-table"
         width: 260px
 
       #{$block}_page_sites &
-        width: 15%
-        max-width: 150px
+        width: 17.5%
+        max-width: 200px
 
       #{$block}_page_users-details-form &
         flex-grow: 0
@@ -177,8 +178,8 @@ $block: ".profile-table"
         width: 16%
 
       #{$block}_page_sites &
-        width: 15%
-        max-width: 150px
+        width: 17.5%
+        max-width: 200px
 
       #{$block}_page_users-details-form &
         flex-grow: 0
@@ -205,9 +206,8 @@ $block: ".profile-table"
         width: 16%
 
       #{$block}_page_sites &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 140px
+        width: 12.5%
+        max-width: 150px
 
       #{$block}_page_users-details-form &
         width: 20%
@@ -244,6 +244,10 @@ $block: ".profile-table"
         flex-shrink: 0
         width: 90px
 
+      #{$block}_page_sites &
+        width: 12.5%
+        max-width: 150px
+
       #{$block}_page_users-details-form &
         width: 20%
         max-width: 300px
@@ -278,6 +282,11 @@ $block: ".profile-table"
         flex-grow: 0
         flex-shrink: 0
         width: 210px
+
+      #{$block}_page_sites &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 120px
 
       #{$block}_page_users-details-form &
         width: 20%
@@ -341,8 +350,14 @@ $block: ".profile-table"
           justify-content: center
           text-align: center
 
+      &:nth-child(4)
+        #{$block}_page_sites &
+          justify-content: center
+          text-align: center
+
       &:nth-child(5)
-        #{$block}_page_users &
+        #{$block}_page_users &,
+        #{$block}_page_sites &
           justify-content: center
           text-align: center
 
@@ -353,7 +368,9 @@ $block: ".profile-table"
 
     #{$block}_page_users #{$block}__cell:nth-child(5) &,
     #{$block}_page_sites #{$block}__cell:nth-child(2) &,
-    #{$block}_page_sites #{$block}__cell:nth-child(3) &
+    #{$block}_page_sites #{$block}__cell:nth-child(3) &,
+    #{$block}_page_sites #{$block}__cell:nth-child(4) &,
+    #{$block}_page_sites #{$block}__cell:nth-child(5) &
       text-align: center
 
 
@@ -396,7 +413,7 @@ $block: ".profile-table"
     #{$block}_page_roles #{$block}__cell:nth-child(2) &
       justify-content: flex-end
 
-    #{$block}_page_sites #{$block}__cell:nth-child(4) &
+    #{$block}_page_sites #{$block}__cell:nth-child(6) &
       flex-direction: column
       align-items: stretch
 
@@ -408,7 +425,7 @@ $block: ".profile-table"
 
   // $Common table action
   &__action
-    #{$block}_page_sites #{$block}__cell:nth-child(4) &
+    #{$block}_page_sites #{$block}__cell:nth-child(6) &
       text-align: left
 
     &:not(:last-child)

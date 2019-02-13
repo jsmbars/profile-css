@@ -119,6 +119,45 @@ $block: ".profile-card"
         border-right: 1px solid #eee
 
 
+  // $Card info list
+  &__info-list
+    display: block
+    width: 100%
+    padding: 10px 0
+
+
+  // $Card info item
+  &__info-item
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: stretch
+
+
+  // $Card info key
+  // $Card info value
+  &__info-key,
+  &__info-value
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 50%
+    padding: 10px 15px
+
+
+  &__info-key
+    align-items: flex-end
+    text-align: right
+
+
+  &__info-value
+    align-items: flex-start
+    text-align: left
+
+
   // $Card labels
   &__labels
     display: flex
@@ -204,5 +243,17 @@ $block: ".profile-card"
     font-weight: 400
     color: #1c2841
 
+    &:not(:last-child)
+      margin-bottom: 5px
+
     &_faded
       color: map-get($app-palette, text-secondary)
+
+    &_marked
+      font-weight: 600
+
+    &_size_s
+      font-size: 12px
+
+    &_size_l
+      font-size: 16px
