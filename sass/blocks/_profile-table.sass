@@ -26,9 +26,12 @@ $block: ".profile-table"
     display: table
 
   &_page_users,
-  &_page_roles,
-  &_page_sites
+  &_page_roles
     @media screen and (max-width: 960px)
+      display: none
+
+  &_page_sites
+    @media screen and (max-width: 1280px)
       display: none
 
   &_page_users-details-form
@@ -100,9 +103,13 @@ $block: ".profile-table"
       padding-right: 10px
       border-bottom: none
 
-    @media screen and (max-width: 1280px)
-      #{$block}_page_users &,
+    @media screen and (max-width: 1440px)
       #{$block}_page_sites &
+        padding-left: 10px
+        padding-right: 10px
+
+    @media screen and (max-width: 1280px)
+      #{$block}_page_users &
         padding-left: 10px
         padding-right: 10px
 
@@ -125,7 +132,7 @@ $block: ".profile-table"
         width: calc(100% - 260px)
 
       #{$block}_page_sites &
-        width: calc(40% - 120px)
+        width: 18%
 
       #{$block}_page_users-details-form &
         flex-grow: 0
@@ -150,7 +157,7 @@ $block: ".profile-table"
         width: 260px
 
       #{$block}_page_sites &
-        width: 17.5%
+        width: 12%
         max-width: 200px
 
       #{$block}_page_users-details-form &
@@ -178,7 +185,7 @@ $block: ".profile-table"
         width: 16%
 
       #{$block}_page_sites &
-        width: 17.5%
+        width: 12%
         max-width: 200px
 
       #{$block}_page_users-details-form &
@@ -206,8 +213,8 @@ $block: ".profile-table"
         width: 16%
 
       #{$block}_page_sites &
-        width: 12.5%
-        max-width: 150px
+        width: 12%
+        max-width: 200px
 
       #{$block}_page_users-details-form &
         width: 20%
@@ -245,7 +252,7 @@ $block: ".profile-table"
         width: 90px
 
       #{$block}_page_sites &
-        width: 12.5%
+        width: 8.5%
         max-width: 150px
 
       #{$block}_page_users-details-form &
@@ -284,9 +291,8 @@ $block: ".profile-table"
         width: 210px
 
       #{$block}_page_sites &
-        flex-grow: 0
-        flex-shrink: 0
-        width: 120px
+        width: 8.5%
+        max-width: 150px
 
       #{$block}_page_users-details-form &
         width: 20%
@@ -320,6 +326,24 @@ $block: ".profile-table"
         #{$block}_page_users-details-form &
           width: 100%
           min-height: 0
+
+    // $Common table cell seventh column
+    &:nth-child(7)
+
+      #{$block}_page_sites &
+        width: 18%
+
+    // $Common table cell eighth column
+    &:nth-child(8)
+
+      #{$block}_page_sites &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 120px
+
+      @media screen and (max-width: 1440px)
+        #{$block}_page_sites &
+          width: 110px
 
     // $Common table cell MOD: role header
     // $Common table cell MOD: role footer
@@ -361,6 +385,11 @@ $block: ".profile-table"
           justify-content: center
           text-align: center
 
+      &:nth-child(6)
+        #{$block}_page_sites &
+          justify-content: center
+          text-align: center
+
 
   // $Common table info
   &__info
@@ -370,7 +399,8 @@ $block: ".profile-table"
     #{$block}_page_sites #{$block}__cell:nth-child(2) &,
     #{$block}_page_sites #{$block}__cell:nth-child(3) &,
     #{$block}_page_sites #{$block}__cell:nth-child(4) &,
-    #{$block}_page_sites #{$block}__cell:nth-child(5) &
+    #{$block}_page_sites #{$block}__cell:nth-child(5) &,
+    #{$block}_page_sites #{$block}__cell:nth-child(6) &
       text-align: center
 
 
@@ -413,7 +443,7 @@ $block: ".profile-table"
     #{$block}_page_roles #{$block}__cell:nth-child(2) &
       justify-content: flex-end
 
-    #{$block}_page_sites #{$block}__cell:nth-child(6) &
+    #{$block}_page_sites #{$block}__cell:nth-child(8) &
       flex-direction: column
       align-items: stretch
 
@@ -425,7 +455,7 @@ $block: ".profile-table"
 
   // $Common table action
   &__action
-    #{$block}_page_sites #{$block}__cell:nth-child(6) &
+    #{$block}_page_sites #{$block}__cell:nth-child(8) &
       text-align: left
 
     &:not(:last-child)

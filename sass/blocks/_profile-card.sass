@@ -27,6 +27,10 @@ $block: ".profile-card"
     &:not(:last-child)
       margin-bottom: 20px
 
+  &_hidden_desktop-l
+    @media screen and (min-width: 1281px)
+      display: none
+
   &_hidden_desktop
     @media screen and (min-width: 961px)
       display: none
