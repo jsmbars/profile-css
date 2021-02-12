@@ -26,7 +26,8 @@ $block: ".profile-table"
     display: table
 
   &_page_users,
-  &_page_roles
+  &_page_roles,
+  &_page_prestige
     @media screen and (max-width: 960px)
       display: none
 
@@ -134,6 +135,9 @@ $block: ".profile-table"
       #{$block}_page_sites &
         width: 18%
 
+      #{$block}_page_prestige &
+        width: 35%
+
       #{$block}_page_users-details-form &
         flex-grow: 0
         flex-shrink: 0
@@ -165,6 +169,9 @@ $block: ".profile-table"
         flex-shrink: 0
         width: 200px
 
+      #{$block}_page_prestige &
+        width: 20%
+
       @media screen and (max-width: 1280px)
         #{$block}_page_users-details-form &
           flex-grow: 1
@@ -193,6 +200,9 @@ $block: ".profile-table"
         flex-shrink: 0
         width: 200px
 
+      #{$block}_page_prestige &
+        width: 25%
+
       @media screen and (max-width: 1280px)
         #{$block}_page_users-details-form &
           flex-grow: 1
@@ -219,6 +229,11 @@ $block: ".profile-table"
       #{$block}_page_users-details-form &
         width: 20%
         max-width: 300px
+
+      #{$block}_page_prestige &
+        flex-grow: 0
+        flex-shrink: 0
+        width: 150px
 
       @media screen and (max-width: 1440px)
         #{$block}_page_users-details-form &
@@ -364,13 +379,15 @@ $block: ".profile-table"
     &_role_header
       &:nth-child(2)
         #{$block}_page_sites &,
-        #{$block}_page_users-details-form &
+        #{$block}_page_users-details-form &,
+        #{$block}_page_prestige &
           justify-content: center
           text-align: center
 
       &:nth-child(3)
         #{$block}_page_sites &,
-        #{$block}_page_users-details-form &
+        #{$block}_page_users-details-form &,
+        #{$block}_page_prestige &
           justify-content: center
           text-align: center
 
@@ -400,7 +417,9 @@ $block: ".profile-table"
     #{$block}_page_sites #{$block}__cell:nth-child(3) &,
     #{$block}_page_sites #{$block}__cell:nth-child(4) &,
     #{$block}_page_sites #{$block}__cell:nth-child(5) &,
-    #{$block}_page_sites #{$block}__cell:nth-child(6) &
+    #{$block}_page_sites #{$block}__cell:nth-child(6) &,
+    #{$block}_page_prestige #{$block}__cell:nth-child(2) &,
+    #{$block}_page_prestige #{$block}__cell:nth-child(3) &
       text-align: center
 
 
@@ -443,7 +462,8 @@ $block: ".profile-table"
     #{$block}_page_roles #{$block}__cell:nth-child(2) &
       justify-content: flex-end
 
-    #{$block}_page_sites #{$block}__cell:nth-child(8) &
+    #{$block}_page_sites #{$block}__cell:nth-child(8) &,
+    #{$block}_page_prestige #{$block}__cell:nth-child(4) &
       flex-direction: column
       align-items: stretch
 
@@ -455,7 +475,8 @@ $block: ".profile-table"
 
   // $Common table action
   &__action
-    #{$block}_page_sites #{$block}__cell:nth-child(8) &
+    #{$block}_page_sites #{$block}__cell:nth-child(8) &,
+    #{$block}_page_prestige #{$block}__cell:nth-child(4) &
       text-align: left
 
     &:not(:last-child)

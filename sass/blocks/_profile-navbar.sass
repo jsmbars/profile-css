@@ -103,7 +103,8 @@ $block: ".profile-navbar"
 
     &_role_users,
     &_role_roles,
-    &_role_sites
+    &_role_sites,
+    &_role_prestige
       &:before
         font-family: icons
         font-size: 40px
@@ -121,7 +122,8 @@ $block: ".profile-navbar"
 
     &_role_users#{&}_state_active,
     &_role_roles#{&}_state_active,
-    &_role_sites#{&}_state_active
+    &_role_sites#{&}_state_active,
+    &_role_prestige#{&}_state_active
       &:before
         color: #fff
 
@@ -140,6 +142,11 @@ $block: ".profile-navbar"
     &_role_sites
       &:before
         content: '\e908'
+
+    // $Navigation bar link MOD: role prestige
+    &_role_prestige
+      &:before
+        content: '\e921'
 
 
   // $Navigation bar link text
